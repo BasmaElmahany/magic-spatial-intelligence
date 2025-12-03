@@ -19,25 +19,46 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-700 py-24">
-        <div className="absolute inset-0 bg-grid-white/10"></div>
-        <motion.div 
-          className="absolute inset-0 opacity-30"
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            repeatType: 'reverse',
-          }}
+  
+
+      {/* HERO SECTION */}
+      <div
+        className="relative overflow-hidden py-28 shadow-xl bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/assets/innovation-modern.png')", // <-- your image path
+        }}
+      >
+
+        {/* Dark Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-indigo-900/70 to-purple-900/70"></div>
+
+        {/* Animated Soft Glow Layer */}
+        <motion.div
+          className="absolute inset-0"
+          animate={{ opacity: [0.4, 0.7, 0.4] }}
+          transition={{ duration: 6, repeat: Infinity }}
           style={{
-            backgroundImage: 'radial-gradient(circle at center, rgba(255,255,255,0.2) 2px, transparent 2px)',
-            backgroundSize: '40px 40px',
+            background:
+              "radial-gradient(circle at center, rgba(255,255,255,0.15), transparent 60%)",
           }}
         />
-        
+
+        {/* Grid Overlay */}
+        <div className="absolute inset-0 bg-grid-white/10 opacity-20"></div>
+
+        {/* Floating Gradient Blobs */}
+        <motion.div
+          className="absolute w-96 h-96 rounded-full bg-purple-500 opacity-30 blur-3xl -top-10 -left-10"
+          animate={{ x: [0, 30, -30, 0], y: [0, 20, -20, 0] }}
+          transition={{ duration: 16, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute w-80 h-80 rounded-full bg-indigo-400 opacity-20 blur-3xl top-20 right-0"
+          animate={{ x: [0, -25, 25, 0], y: [0, -20, 20, 0] }}
+          transition={{ duration: 18, repeat: Infinity }}
+        />
+
+
         <div className="container relative z-10">
           <motion.div
             initial={{ y: 30, opacity: 0 }}
@@ -55,7 +76,7 @@ export default function About() {
                 {language === 'ar' ? 'عن المجمع' : 'About MAGIC'}
               </Badge>
             </motion.div>
-            
+
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               {t('about.fullName')}
             </h1>
@@ -65,6 +86,7 @@ export default function About() {
           </motion.div>
         </div>
       </div>
+
 
       {/* Establishment Details */}
       <section className="py-20">
@@ -85,7 +107,7 @@ export default function About() {
                 </h2>
                 <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full mb-6"></div>
                 <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                  {language === 'ar' 
+                  {language === 'ar'
                     ? 'المنشأ بقرار المحافظ برقم 560 لسنة 2024، ويتبع السيد المحافظ، وتحت الإشراف المباشر للسيد الدكتور/ محمد أبوزيد - نائب محافظ المنيا.'
                     : 'Established by Governor\'s Decision No. 560 of 2024, operating under the Governor and under the direct supervision of Dr. Mohamed Abouzeid, Deputy Governor of Minya.'}
                 </p>
@@ -95,7 +117,7 @@ export default function About() {
                     : 'The complex represents a significant leap in the governorate\'s technological capabilities, aiming to create a comprehensive digital ecosystem that supports decision-makers, enhances public services, and fosters innovation in spatial intelligence.'}
                 </p>
               </div>
-              
+
               {/* Key Stats */}
               <div className="grid grid-cols-2 gap-6">
                 <Card className="p-6 bg-gradient-to-br from-indigo-50 to-purple-50 border-2 border-indigo-100">
@@ -122,9 +144,9 @@ export default function About() {
               className="relative"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
-                <img 
-                  src="/assets/surveying-modern.png" 
-                  alt="MAGIC Complex" 
+                <img
+                  src="/assets/surveying-modern.png"
+                  alt="MAGIC Complex"
                   className="w-full h-auto"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
@@ -159,7 +181,7 @@ export default function About() {
                 {language === 'ar' ? 'رؤيتنا للمستقبل' : 'Our Vision for the Future'}
               </h2>
             </div>
-            
+
             <Card className="p-10 md:p-14 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border-2 border-blue-100 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
               <div className="relative z-10">

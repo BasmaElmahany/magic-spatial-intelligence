@@ -103,6 +103,8 @@ export const translations: Translations = {
   'footer.about': { en: 'About MAGIC', ar: 'عن المجمع' },
   'footer.quickLinks': { en: 'Quick Links', ar: 'روابط سريعة' },
   'footer.followUs': { en: 'Follow Us', ar: 'تابعنا' },
+   'footer.title' : {en : 'MAGIC'  , ar :' ماجيك'},
+    'footer.subtitle' : {en : 'Minya Advanced Geospatial Intelligence Complex'  , ar :' مجمع الذكاء المكاني المتقدم'},
 
   // Common
   'common.readMore': { en: 'Read More', ar: 'اقرأ المزيد' },
@@ -146,7 +148,7 @@ export const translations: Translations = {
   },
 
 
-'footer.description': {
+  'footer.description': {
     en: 'Advanced Spatial Intelligence Complex leading the digital transformation in Minya Governorate through cutting-edge GIS and remote sensing technologies.',
     ar: 'مجمع الذكاء المكاني المتقدم يقود التحول الرقمي في محافظة المنيا باستخدام أحدث تقنيات نظم المعلومات الجغرافية والاستشعار عن بعد.'
   },
@@ -203,6 +205,238 @@ export const translations: Translations = {
     ar: 'البريد الإلكتروني'
   },
 
+  // Platforms (Bilingual)
+  'platforms.surveying.title': {
+    en: 'Surveying Portal',
+    ar: 'بوابة المساحة'
+  },
+  'platforms.surveying.type': {
+    en: 'Web Portal',
+    ar: 'بوابة إلكترونية'
+  },
+  'platforms.surveying.desc': {
+    en: 'Facilitates building and activity licensing procedures, providing official documentation and supporting planning decisions.',
+    ar: 'تسهّل إجراءات تراخيص المباني والأنشطة، وتوفر المستندات الرسمية وتدعم قرارات التخطيط.'
+  },
+
+  'platforms.mli.title': {
+    en: 'Minya Lands Inquiries (MLI)',
+    ar: 'استعلامات أراضي المنيا (MLI)'
+  },
+  'platforms.mli.type': {
+    en: 'Mobile App',
+    ar: 'تطبيق جوال'
+  },
+  'platforms.mli.desc': {
+    en: 'Smart application for land inquiries, determining legal status, and checking if land is within urban boundaries.',
+    ar: 'تطبيق ذكي للاستعلام عن الأراضي وتحديد الوضع القانوني والتأكد من وجود الأرض داخل الأحوزة العمرانية.'
+  },
+
+  'platforms.inventory.title': {
+    en: 'State Lands Inventory',
+    ar: 'حصر أراضي الدولة'
+  },
+  'platforms.inventory.type': {
+    en: 'Web Portal',
+    ar: 'بوابة إلكترونية'
+  },
+  'platforms.inventory.desc': {
+    en: 'Integrated digital platform for managing legalization requests on state lands, ensuring transparency and speed.',
+    ar: 'منصة رقمية متكاملة لإدارة طلبات التقنين على أراضي الدولة، لضمان الشفافية والسرعة.'
+  },
+
+  'platforms.discover.title': {
+    en: 'Miniastic',
+    ar :  'منياستيك'
+  },
+  'platforms.discover.type': {
+    en: 'Website',
+    ar: 'موقع إلكتروني'
+  },
+  'platforms.discover.desc': {
+    en: 'Tourism promotion website acting as a quick guide to discovering Minya\'s treasures, hotels, and landmarks.',
+    ar: 'موقع ترويجي للسياحة يعمل كدليل سريع لاكتشاف معالم المنيا وفنادقها ومزاراتها.'
+  },
+
+  'platforms.holdings.title': {
+    en: 'Agricultural Holdings',
+    ar: 'الحيازات الزراعية'
+  },
+  'platforms.holdings.type': {
+    en: 'Mobile App',
+    ar: 'تطبيق جوال'
+  },
+  'platforms.holdings.desc': {
+    en: 'Smart app facilitating the discovery of agricultural holdings and linking them spatially.',
+    ar: 'تطبيق ذكي يسهل اكتشاف الحيازات الزراعية وربطها مكانياً.'
+  },
+
+  'platforms.dawagin.title': {
+    en: 'Dawagin ERP',
+    ar: 'نظام دواجن ERP'
+  },
+  'platforms.dawagin.type': {
+    en: 'System',
+    ar: 'نظام'
+  },
+  'platforms.dawagin.desc': {
+    en: 'Integrated ERP system for managing poultry projects financially and administratively.',
+    ar: 'نظام ERP متكامل لإدارة مشاريع الدواجن مالياً وإدارياً.'
+  },
+  'plateform.Digital' : {
+    en :'Digital',
+    ar :'الرقمية'
+  },
+  'plateform.Platforms' : {
+    en :'Platforms',
+    ar : 'المنصات'
+  },
+  'plateform.description' : {
+    en: ' Access our suite of digital tools and applications designed to streamline government services and empower citizens.',
+    ar :'استخدم مجموعتنا من الأدوات والتطبيقات الرقمية المصممة لتبسيط الخدمات الحكومية وتمكين المواطنين.'
+  },
+  'plateform.Access-Platform' :{
+    en : 'Access-Platform' ,
+    ar : 'الوصول إلى المنصة'
+  }, 
+   "platforms.fast.title": {
+    "en": "Fast Performance",
+    "ar": "أداء سريع"
+  },
+  "platforms.fast.desc": {
+    "en": "High-speed optimized workflow.",
+    "ar": "سير عمل محسّن وسريع للغاية."
+  },
+
+  "platforms.secure.title": {
+    "en": "Secure System",
+    "ar": "نظام آمن"
+  },
+  "platforms.secure.desc": {
+    "en": "Advanced protection and encryption.",
+    "ar": "حماية متقدمة وتشفير عالي المستوى."
+  },
+
+  "platforms.smart.title": {
+    "en": "Smart Insights",
+    "ar": "تحليلات ذكية"
+  },
+  "platforms.smart.desc": {
+    "en": "AI-powered decision support.",
+    "ar": "نظام دعم قرار يعتمد على الذكاء الاصطناعي."
+  },
+  "about.goal.badge": {
+    "en": "Our Goal",
+    "ar": "هدفنا"
+  },
+  "about.goal.title": {
+    "en": "What is our goal?",
+    "ar": "ما هو هدفنا؟"
+  },
+  "about.goal.description": {
+    "en": "Providing a safe and sustainable infrastructure through accurate maps, specialized trainings, and high-quality services for all our clients.",
+    "ar": "توفير بنية تحتية وفوقية آمنة ومستدامة من خلال تقديم خرائط دقيقة وتدريبات تخصصية وخدمات عالية الجودة لجميع عملائنا."
+  },
+
+  "about.values.badge": {
+    "en": "Our Values",
+    "ar": "قيمنا"
+  },
+  "about.values.title": {
+    "en": "What are our values?",
+    "ar": "ما هي قيمنا؟"
+  },
+  "about.values.items.professional": {
+    "en": "Professionalism",
+    "ar": "الاحترافية"
+  },
+  "about.values.items.quality": {
+    "en": "Quality",
+    "ar": "الجودة"
+  },
+  "about.values.items.transparency": {
+    "en": "Transparency",
+    "ar": "الشفافية"
+  },
+  "about.values.items.sustainability": {
+    "en": "Sustainability",
+    "ar": "الاستدامة"
+  },
+  "about.values.items.integrity": {
+    "en": "Integrity",
+    "ar": "الأمانة"
+  },
+
+  "about.documents.badge": {
+    "en": "Required Documents",
+    "ar": "المستندات المطلوبة للتقديم"
+  },
+  "about.documents.title": {
+    "en": "What are the required documents?",
+    "ar": "ما المستندات المطلوبة للتقديم؟"
+  },
+  "about.documents.items.item1": {
+    "en": "Original letter from the local authority addressed to the Utility Networks Information Center stating the citizen or entity's name and excavation location.",
+    "ar": "أصل خطاب من الحي موجّه إلى مركز معلومات شبكات المرافق يوضح اسم المواطن أو الجهة ومكان الحفر."
+  },
+  "about.documents.items.item2": {
+    "en": "Original letter from the utility to be connected showing the excavation path and its length.",
+    "ar": "أصل خطاب من المرفق المراد توصيله يوضح مسار الحفر وطوله."
+  },
+  "about.documents.items.item3": {
+    "en": "Original excavation sketch.",
+    "ar": "أصل كروكي مسار الحفر."
+  },
+  "about.documents.items.item4": {
+    "en": "Copy of approvals from (Natural Gas - Sanitation - Water - Telecom Egypt - Electricity) showing each utility path, with originals available for inspection.",
+    "ar": "صورة من موافقة كل من (الغاز الطبيعي - الصرف الصحي - المياه - المصرية للاتصالات - الكهرباء) تفيد بمسار كل مرفق على حدى مع إحضار الأصل للاطلاع عليه."
+  },
+  "about.documents.items.item5": {
+    "en": "Copy of the citizen’s ID or the company owner’s ID.",
+    "ar": "صورة بطاقة المواطن صاحب المشروع أو صاحب الشركة."
+  },
+  "about.documents.items.item6": {
+    "en": "Copy of the delegate’s ID and authorization/power of attorney (if applicable).",
+    "ar": "صورة بطاقة المندوب والتوكيل / التفويض من المال (في حالة مندوب عنه)."
+  },
+  "about.documents.items.item7": {
+    "en": "Mobile number of the citizen or delegate for communication.",
+    "ar": "رقم الموبايل الخاص بالمواطن أو المندوب للتواصل."
+  },
+
+  "about.procedures.badge": {
+    "en": "Procedures",
+    "ar": "الإجراءات المتبعة"
+  },
+  "about.procedures.title": {
+    "en": "What are the procedures?",
+    "ar": "ما الإجراءات المتبعة؟"
+  },
+  "about.procedures.items.step1": {
+    "en": "Contact the citizen to inform them about the excavation survey for the Utility Networks Information Center inspection.",
+    "ar": "يتم التواصل مع المواطن لإخطاره بمقايسة الحفر الخاصة بالمعاينة لمركز معلومات شبكات المرافق."
+  },
+  "about.procedures.items.step2": {
+    "en": "Collect the survey fees via electronic payment (Visa) or request the center to charge the entity via the institutional code.",
+    "ar": "يتم تحصيل الرسوم الخاصة بالمقايسة عن طريق الدفع الإلكتروني (فيزا) أو مطالبة من المركز للجهات لتحويل الرسوم على الكود المؤسسي."
+  },
+  "about.procedures.items.step3": {
+    "en": "Inform the citizen to visit the Utility Networks Information Center to receive the technical approval and a map showing the excavation and other utility paths.",
+    "ar": "يتم التواصل مع المواطن لإخطاره بالتوجه لمركز معلومات شبكات المرافق لاستلام الموافقة الفنية وخريطة موضّح بها مسار الحفر ومسارات المرافق الأخرى."
+  },
+  "about.procedures.items.step4": {
+    "en": "Ensure the excavation date is renewed upon receiving the technical approval.",
+    "ar": "الحرص على تجديد تاريخ الحفر عند استلام الموافقة الفنية."
+  },
+  "about.procedures.items.step5": {
+    "en": "The technical approval is valid for one month from its date, and can be renewed if expired.",
+    "ar": "تعتمد الموافقة الفنية لمدة شهر من تاريخها، وفي حالة الانتهاء يتم تجديدها."
+  },
+  "about.procedures.items.step6": {
+    "en": "If the client delays completing the procedures for more than two months, all required documents must be renewed.",
+    "ar": "في حالة تأخر العميل عن استكمال الإجراءات لأكثر من شهرين يتم تجديد جميع المستندات المطلوبة."
+  }
+  
 
 };
 

@@ -36,6 +36,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'ar' : 'en');
+    const { t } = useLanguage();
   };
 
   return (
@@ -59,10 +60,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-white/80 transition-colors"><Facebook className="w-4 h-4" /></a>
-            <a href="#" className="hover:text-white/80 transition-colors"><Twitter className="w-4 h-4" /></a>
+            <a href="https://www.facebook.com/magic.minya" className="hover:text-white/80 transition-colors" target='blank'><Facebook className="w-4 h-4" /></a>
             <a href="#" className="hover:text-white/80 transition-colors"><Linkedin className="w-4 h-4" /></a>
-            <a href="#" className="hover:text-white/80 transition-colors"><Instagram className="w-4 h-4" /></a>
+            
           </div>
         </div>
       </div>
@@ -74,17 +74,31 @@ export default function MainLayout({ children }: MainLayoutProps) {
       >
         <div className="container flex h-20 items-center justify-between">
           <Link href="/">
-            <a className="flex items-center gap-3 group">
-              <div className="relative w-12 h-12 bg-primary rounded-xl flex items-center justify-center overflow-hidden shadow-lg group-hover:shadow-primary/25 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
-                <span className="text-white font-bold text-xl relative z-10">M</span>
+            <a className="flex items-center gap-4 group">
+              {/* Logo container */}
+              <div className="relative w-14 h-14 rounded-xl flex items-center justify-center overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-primary/40">
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent pointer-events-none"></div>
+                {/* Logo image */}
+                <img
+                  src="/assets/logo.jpg"
+                  alt="Logo"
+                  className="relative z-10 object-cover w-10 h-10 rounded-lg"
+                />
               </div>
+
+              {/* Logo Text */}
               <div className="flex flex-col">
-                <span className="font-bold text-xl leading-none tracking-tight text-foreground group-hover:text-primary transition-colors"> {language === 'ar' ? 'مجمع الذكاء المكاني المتقدم' : 'Magic'}</span>
-                <span className="text-[10px] text-muted-foreground font-medium tracking-widest uppercase mt-1"> {language === 'ar' ? '' : 'Minya Advanced Geospatial Intelligence Complex'}</span>
+                <span className="font-bold text-xl leading-tight tracking-tight text-foreground group-hover:text-primary transition-colors">
+                  {language === 'ar' ? 'مجمع الذكاء المكاني المتقدم' : 'Magic'}
+                </span>
+                <span className="text-[10px] text-muted-foreground font-medium tracking-widest uppercase mt-1">
+                  {language === 'ar' ? '' : 'Minya Advanced Geospatial Intelligence Complex'}
+                </span>
               </div>
             </a>
           </Link>
+
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
@@ -92,8 +106,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
               <Link key={item.path} href={item.path}>
                 <a
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative group ${location === item.path
-                      ? 'text-primary bg-primary/5'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                    ? 'text-primary bg-primary/5'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                     }`}
                 >
                   {t(item.label)}
@@ -146,8 +160,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
                 <Link key={item.path} href={item.path}>
                   <a
                     className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${location === item.path
-                        ? 'bg-primary/10 text-primary'
-                        : 'hover:bg-muted text-foreground'
+                      ? 'bg-primary/10 text-primary'
+                      : 'hover:bg-muted text-foreground'
                       }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -182,12 +196,35 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
           {/* Logo + Description */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">M</span>
+            <div className="flex items-center gap-8">
+              {/* Logo Container */}
+              <div className="relative w-40 h-24 rounded-xl flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-105">
+                {/* Optional gradient overlay - removed for full transparency */}
+                {/* <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent pointer-events-none"></div> */}
+
+                {/* Logo Image */}
+                <img
+                  src="/assets/logo.jpg"
+                  alt="Logo"
+                  className="relative z-10 object-cover w-36 h-20 rounded-2xl"
+                />
               </div>
-              <span className="font-bold text-xl text-white">MAGIC</span>
+
+
+              {/* Logo Text */}
+              <div className="flex flex-col">
+                <span className="font-extrabold text-4xl text-white tracking-tight">
+                 MAGIC
+                </span>
+                <span className="text-lg text-white/70 font-medium tracking-wide mt-1">
+                  {t('footer.subtitle')}
+                </span>
+              </div>
             </div>
+
+
+
+
 
             <p className="text-slate-400 text-sm leading-relaxed">
               {t('footer.description')}
@@ -195,23 +232,13 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.facebook.com/magic.minya"
                 className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300"
+                target='blank'
               >
                 <Facebook className="w-4 h-4" />
               </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300"
-              >
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
+           
             </div>
           </div>
 

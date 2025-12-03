@@ -1,10 +1,10 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
-import { 
-  Check, 
-  Map, 
-  Database, 
-  GraduationCap, 
+import {
+  Check,
+  Map,
+  Database,
+  GraduationCap,
   Satellite,
   Brain,
   Server,
@@ -125,176 +125,141 @@ export default function Services() {
   ];
 
   return (
-  <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100">
-    
-    {/* ------------------------------------------- */}
-    {/* HERO SECTION */}
-    {/* ------------------------------------------- */}
-    <div className="relative overflow-hidden py-28 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700">
-      
-      {/* Animated Mesh Background */}
-      <motion.div
-        className="absolute inset-0 opacity-30"
-        animate={{
-          backgroundPosition: ["0% 0%", "100% 100%"],
-        }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 relative overflow-hidden">
+
+      {/* ------------------------------------------- */}
+      {/* HERO SECTION */}
+      {/* ------------------------------------------- */}
+      <div
+        className="relative overflow-hidden py-32 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700"
         style={{
-          backgroundImage:
-            "radial-gradient(circle at 20% 30%, rgba(255,255,255,0.25) 0%, transparent 60%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.25) 0%, transparent 60%)",
-          backgroundSize: "200% 200%",
+          backgroundImage: "url('/assets/gis-modern.png')",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
         }}
-      />
+      >
+        {/* Overlay for readability */}
+        <div className="absolute inset-0 bg-black/25"></div>
 
-      {/* Floating Particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1.5 h-1.5 rounded-full bg-white/40 blur-[1px]"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [-20, 20],
-              opacity: [0.6, 1, 0.6],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 4,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Hero Content */}
-      <div className="relative container z-10">
+        {/* Animated Mesh Background */}
         <motion.div
-          initial={{ y: 40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.9 }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.2, type: "spring" }}
-            className="inline-block mb-6"
-          >
-            <Badge className="bg-white/20 text-white border-white/30 px-6 py-2 text-lg backdrop-blur-md shadow-lg">
+          className="absolute inset-0 opacity-20"
+          animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
+          transition={{ duration: 25, repeat: Infinity, repeatType: "reverse" }}
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 20% 30%, rgba(255,255,255,0.25) 0%, transparent 60%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.25) 0%, transparent 60%)",
+            backgroundSize: "200% 200%",
+          }}
+        />
+
+        {/* Hero Content */}
+        <div className="relative container z-10 text-center">
+          <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1 }}>
+            <Badge className="bg-white/20 text-white border-white/30 px-6 py-2 text-lg backdrop-blur-md shadow-lg inline-block mb-6">
               {language === "ar" ? "حلول شاملة" : "Comprehensive Solutions"}
             </Badge>
+            <h1 className="text-5xl md:text-6xl font-black text-white drop-shadow-xl mb-6 tracking-tight">
+              {t("services.title")}
+            </h1>
+            <p className="text-xl text-teal-100 leading-relaxed drop-shadow">
+              {t("services.subtitle")}
+            </p>
           </motion.div>
-
-          <h1 className="text-5xl md:text-6xl font-black text-white drop-shadow-xl mb-6 tracking-tight">
-            {t("services.title")}
-          </h1>
-
-          <p className="text-xl text-teal-100 leading-relaxed drop-shadow">
-            {t("services.subtitle")}
-          </p>
-        </motion.div>
+        </div>
       </div>
-    </div>
 
-    {/* ------------------------------------------- */}
-    {/* SERVICES SECTION */}
-    {/* ------------------------------------------- */}
-    <div className="container py-24 space-y-28">
-      {services.map((section, idx) => (
-        <motion.div
-          key={idx}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-14 items-start"
-        >
-          {/* Left Category Card */}
+
+
+      {/* ------------------------------------------- */}
+      {/* SERVICES SECTION */}
+      {/* ------------------------------------------- */}
+      <div className="container py-28 space-y-32 relative">
+        {services.map((section, idx) => (
           <motion.div
-            className="lg:col-span-4 sticky top-20"
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.3 }}
+            key={idx}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start"
           >
-            <Card className="bg-white/80 backdrop-blur-xl p-10 rounded-3xl border border-slate-100 shadow-2xl hover:shadow-3xl transition-all duration-700">
-              <motion.div
-                className={`w-20 h-20 bg-gradient-to-br ${section.color} rounded-3xl flex items-center justify-center text-white shadow-xl mb-8`}
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.7 }}
-              >
-                <section.icon className="w-10 h-10" />
-              </motion.div>
+            {/* Left Category Card */}
+            <motion.div className="lg:col-span-4 sticky top-20">
+              <Card className="bg-white/80 backdrop-blur-xl p-10 rounded-3xl border border-slate-100 shadow-2xl hover:shadow-3xl transition-all duration-700 relative overflow-hidden">
 
-              <h2 className="text-3xl font-extrabold text-slate-900 mb-4">
-                {language === "ar"
-                  ? section.categoryAr
-                  : section.categoryEn}
-              </h2>
+                {/* Decorative Background Photo */}
+                <img
+                  src={`/assets/services-bg${idx + 1}.jpg`}
+                  className="absolute inset-0 w-full h-full object-cover opacity-10"
+                  alt="Service background"
+                />
 
-              <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                {language === "ar"
-                  ? section.descriptionAr
-                  : section.descriptionEn}
-              </p>
-
-              {/* Animated divider */}
-              <motion.div
-                className={`h-2 w-28 bg-gradient-to-r ${section.color} rounded-full mb-8`}
-                initial={{ width: 0 }}
-                whileInView={{ width: 112 }}
-                transition={{ duration: 1, delay: 0.3 }}
-                viewport={{ once: true }}
-              />
-
-              {/* Stats */}
-              <div
-                className={`p-5 rounded-2xl bg-gradient-to-br ${section.color} bg-opacity-10 border`}
-              >
-                <div
-                  className={`text-4xl font-black bg-gradient-to-r ${section.color} bg-clip-text text-transparent mb-1`}
+                {/* Icon */}
+                <motion.div
+                  className={`w-20 h-20 bg-gradient-to-br ${section.color} rounded-3xl flex items-center justify-center text-white shadow-xl mb-8`}
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.7 }}
                 >
-                  {section.stats.value}
-                </div>
-                <div className="text-sm text-slate-600 font-semibold tracking-wide">
-                  {language === "ar"
-                    ? section.stats.labelAr
-                    : section.stats.labelEn}
-                </div>
-              </div>
-            </Card>
-          </motion.div>
+                  <section.icon className="w-10 h-10" />
+                </motion.div>
 
-          {/* Right Items Grid */}
-          <div className="lg:col-span-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+                <h2 className="text-3xl font-extrabold text-slate-900 mb-4">
+                  {language === "ar" ? section.categoryAr : section.categoryEn}
+                </h2>
+                <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                  {language === "ar" ? section.descriptionAr : section.descriptionEn}
+                </p>
+
+                <motion.div
+                  className={`h-2 w-28 bg-gradient-to-r ${section.color} rounded-full mb-8`}
+                  initial={{ width: 0 }}
+                  whileInView={{ width: 112 }}
+                  transition={{ duration: 1, delay: 0.3 }}
+                  viewport={{ once: true }}
+                />
+
+                {/* Stats */}
+                <div className={`p-5 rounded-2xl bg-gradient-to-br ${section.color} bg-opacity-10 border`}>
+                  <div className={`text-4xl font-black bg-gradient-to-r ${section.color} bg-clip-text text-transparent mb-1`}>
+                    {section.stats.value}
+                  </div>
+                  <div className="text-sm text-slate-600 font-semibold tracking-wide">
+                    {language === "ar" ? section.stats.labelAr : section.stats.labelEn}
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* Right Items Grid */}
+            <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
               {section.items.map((item, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.07 }}
+                  transition={{ delay: i * 0.08 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.05, y: -5 }}
                   className="group"
                 >
-                  <Card className="h-full p-7 bg-white/70 backdrop-blur-lg rounded-2xl border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300">
-                    <div className="flex items-start gap-4">
+                  <Card className="h-full p-7 bg-white/70 backdrop-blur-lg rounded-2xl border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+                    {/* Floating Item Icon */}
+                    <motion.div
+                      className={`absolute -top-5 -right-5 w-16 h-16 rounded-full bg-gradient-to-br ${section.color} opacity-10`}
+                      animate={{ rotate: 360 }}
+                      transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+                    />
+
+                    <div className="flex items-start gap-4 relative z-10">
                       <motion.div
                         className={`mt-1 w-9 h-9 rounded-full bg-gradient-to-br ${section.color} bg-opacity-20 flex items-center justify-center`}
                         whileHover={{ rotate: 360, scale: 1.2 }}
                         transition={{ duration: 0.4 }}
                       >
-                        <Check
-                          className={`w-5 h-5 bg-gradient-to-r ${section.color} bg-clip-text text-transparent`}
-                        />
+                        <Check className={`w-5 h-5 bg-gradient-to-r ${section.color} bg-clip-text text-transparent`} />
                       </motion.div>
-
                       <span className="text-base text-slate-700 font-medium leading-relaxed group-hover:text-slate-900 transition-colors">
                         {language === "ar" ? item.ar : item.en}
                       </span>
@@ -303,43 +268,55 @@ export default function Services() {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </motion.div>
-      ))}
+          </motion.div>
+        ))}
+      </div>
+
+      {/* ------------------------------------------- */}
+      {/* CTA SECTION */}
+      {/* ------------------------------------------- */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="container pb-32 relative"
+      >
+        <Card className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 p-16 rounded-3xl text-center text-white shadow-3xl relative overflow-hidden">
+          {/* Decorative Floating Images */}
+          <img
+            src="/assets/minya-cyber.png"
+            className="absolute top-0 left-10 w-32 opacity-30 animate-float"
+            alt="Floating"
+          />
+          <img
+            src="/assets/minya-cyber.png"
+            className="absolute bottom-0 right-10 w-48 opacity-20 animate-float-slow"
+            alt="Floating"
+          />
+
+          <Award className="w-16 h-16 mx-auto mb-6 opacity-90" />
+
+          <h2 className="text-4xl font-bold mb-4 tracking-tight">
+            {language === "ar" ? "هل تحتاج إلى خدماتنا؟" : "Need Our Services?"}
+          </h2>
+
+          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+            {language === "ar"
+              ? "تواصل معنا اليوم للحصول على استشارة مجانية وتعرف على كيف يمكننا مساعدتك"
+              : "Contact us today for a free consultation and learn how we can help you"}
+          </p>
+
+          <motion.button
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.94 }}
+            className="bg-white text-blue-700 px-12 py-5 rounded-2xl font-bold text-xl shadow-xl hover:shadow-2xl transition-all duration-300"
+          >
+            {language === "ar" ? "تواصل معنا" : "Contact Us"}
+          </motion.button>
+        </Card>
+      </motion.div>
     </div>
 
-    {/* ------------------------------------------- */}
-    {/* CTA SECTION */}
-    {/* ------------------------------------------- */}
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="container pb-24"
-    >
-      <Card className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 p-14 rounded-3xl text-center text-white shadow-3xl">
-        <Award className="w-16 h-16 mx-auto mb-6 opacity-90" />
-
-        <h2 className="text-4xl font-bold mb-4 tracking-tight">
-          {language === "ar" ? "هل تحتاج إلى خدماتنا؟" : "Need Our Services?"}
-        </h2>
-
-        <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
-          {language === "ar"
-            ? "تواصل معنا اليوم للحصول على استشارة مجانية وتعرف على كيف يمكننا مساعدتك"
-            : "Contact us today for a free consultation and learn how we can help you"}
-        </p>
-
-        <motion.button
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.94 }}
-          className="bg-white text-blue-700 px-10 py-4 rounded-2xl font-bold text-xl shadow-xl hover:shadow-2xl transition-all duration-300"
-        >
-          {language === "ar" ? "تواصل معنا" : "Contact Us"}
-        </motion.button>
-      </Card>
-    </motion.div>
-  </div>
-);
+  );
 
 }

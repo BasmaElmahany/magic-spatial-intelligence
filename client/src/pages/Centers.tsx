@@ -37,7 +37,7 @@ export default function Centers() {
       <div
         className="relative overflow-hidden py-28 shadow-xl bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/assets/innovation-modern.png')", // <-- your image path
+          backgroundImage: "url('/assets/1.jpg')", // <-- your image path
         }}
       >
 
@@ -108,99 +108,118 @@ export default function Centers() {
 
 
       {/* Centers Grid */}
-      <div className="container py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {centers.map((center, idx) => {
-            const Icon = iconMap[center.icon];
-            return (
-              <motion.div
-                key={center.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1, duration: 0.5 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -8 }}
-              >
-                <Card
-                  className="h-full border-2 border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden bg-white cursor-pointer relative"
-                  onClick={() => setSelectedCenter(center)}
+      <div className="relative py-24 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+        {/* Floating Decorative Shapes */}
+        <img src="/assets/shape1.png" className="absolute top-0 left-0 w-40 opacity-20 animate-float-slow" alt="decor" />
+        <img src="/assets/shape2.png" className="absolute bottom-10 right-0 w-60 opacity-15 animate-float" alt="decor" />
+
+        <div className="container">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+              {language === 'ar' ? 'مراكزنا المتخصصة' : 'Our Specialized Centers'}
+            </h2>
+            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mt-4">
+              {t('centers.subtitle')}
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {centers.map((center, idx) => {
+              const Icon = iconMap[center.icon];
+              return (
+                <motion.div
+                  key={center.id}
+                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ delay: idx * 0.1, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -10, scale: 1.02 }}
                 >
-                  {/* Gradient Background */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${center.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                  <Card
+                    className="h-full border-0 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden cursor-pointer relative bg-white"
+                    onClick={() => setSelectedCenter(center)}
+                  >
+                    {/* Gradient Background Accent */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${center.color} opacity-10 group-hover:opacity-20 transition-opacity duration-500 blur-3xl`}></div>
 
-                  {/* Top Color Bar */}
-                  <motion.div
-                    className={`h-1.5 w-full bg-gradient-to-r ${center.color}`}
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    transition={{ delay: idx * 0.1 + 0.3, duration: 0.6 }}
-                    viewport={{ once: true }}
-                  ></motion.div>
-
-                  <CardHeader className="pb-4 relative">
-                    <div className="flex justify-between items-start mb-6">
-                      <motion.div
-                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${center.color} flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.6 }}
-                      >
-                        <Icon className="w-8 h-8" />
-                      </motion.div>
-                      <motion.div
-                        className="text-5xl font-bold text-slate-100 group-hover:text-slate-200 transition-colors"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: idx * 0.1 + 0.5 }}
-                      >
-                        0{center.id}
-                      </motion.div>
-                    </div>
-                    <CardTitle className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-tight min-h-[3.5rem]">
-                      {language === 'ar' ? center.nameAr : center.nameEn}
-                    </CardTitle>
-                  </CardHeader>
-
-                  <CardContent className="relative">
-                    <p className="text-slate-600 leading-relaxed mb-6 line-clamp-4">
-                      {language === 'ar' ? center.descriptionAr : center.descriptionEn}
-                    </p>
-
-                    {/* Services Preview */}
-                    {center.services && center.services.length > 0 && (
-                      <div className="mb-6">
-                        <div className="flex flex-wrap gap-2">
-                          {center.services.slice(0, 2).map((service, i) => (
-                            <Badge
-                              key={i}
-                              variant="secondary"
-                              className="text-xs bg-slate-100 text-slate-700 hover:bg-slate-200"
-                            >
-                              {service}
-                            </Badge>
-                          ))}
-                          {center.services.length > 2 && (
-                            <Badge variant="secondary" className="text-xs bg-slate-100 text-slate-700">
-                              +{center.services.length - 2}
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-                    )}
-
+                    {/* Top Gradient Bar */}
                     <motion.div
-                      className="flex items-center text-blue-600 font-semibold text-sm group-hover:gap-3 gap-2 transition-all duration-300"
-                      whileHover={{ x: dir === 'rtl' ? -5 : 5 }}
-                    >
-                      {t('centers.learnMore')}
-                      <ArrowRight className={`w-4 h-4 ${dir === 'rtl' ? 'rotate-180' : ''}`} />
-                    </motion.div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            );
-          })}
+                      className={`h-2 w-full bg-gradient-to-r ${center.color}`}
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      transition={{ delay: idx * 0.1 + 0.2, duration: 0.5 }}
+                    ></motion.div>
+
+                    <CardHeader className="pb-4 relative z-10">
+                      <div className="flex justify-between items-start mb-6">
+                        <motion.div
+                          className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${center.color} flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                          whileHover={{ rotate: 360 }}
+                        >
+                          <Icon className="w-8 h-8" />
+                        </motion.div>
+                        <motion.div
+                          className="text-5xl font-bold text-slate-100 group-hover:text-slate-200 transition-colors"
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          transition={{ delay: idx * 0.1 + 0.4 }}
+                        >
+                          0{center.id}
+                        </motion.div>
+                      </div>
+                      <CardTitle className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-tight min-h-[3.5rem]">
+                        {language === 'ar' ? center.nameAr : center.nameEn}
+                      </CardTitle>
+                    </CardHeader>
+
+                    <CardContent className="relative z-10">
+                      <p className="text-slate-600 leading-relaxed mb-6 line-clamp-4">
+                        {language === 'ar' ? center.descriptionAr : center.descriptionEn}
+                      </p>
+
+                      {/* Services Preview */}
+                      {center.services?.length > 0 && (
+                        <div className="mb-6">
+                          <div className="flex flex-wrap gap-2">
+                            {center.services.slice(0, 2).map((service, i) => (
+                              <Badge
+                                key={i}
+                                variant="secondary"
+                                className="text-xs bg-slate-100 text-slate-700 hover:bg-slate-200"
+                              >
+                                {service}
+                              </Badge>
+                            ))}
+                            {center.services.length > 2 && (
+                              <Badge variant="secondary" className="text-xs bg-slate-100 text-slate-700">
+                                +{center.services.length - 2}
+                              </Badge>
+                            )}
+                          </div>
+                        </div>
+                      )}
+
+                      <motion.div
+                        className="flex items-center text-blue-600 font-semibold text-sm group-hover:gap-3 gap-2 transition-all duration-300"
+                        whileHover={{ x: dir === 'rtl' ? -5 : 5 }}
+                      >
+                        {t('centers.learnMore')}
+                        <ArrowRight className={`w-4 h-4 ${dir === 'rtl' ? 'rotate-180' : ''}`} />
+                      </motion.div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
+
 
       {/* Center Detail Dialog */}
       <AnimatePresence>
