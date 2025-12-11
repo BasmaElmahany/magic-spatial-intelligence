@@ -77,7 +77,9 @@ export default function Complaints() {
                   </div>
                   <div>
                     <div className="font-medium opacity-80 text-sm mb-1">{language === 'ar' ? 'زورونا' : 'Visit Us'}</div>
-                    <div className="font-bold">محافظة المنيا، مصر</div>
+                    <div className="font-bold"> {language === "ar"
+                      ? "أبو فليو - بجانب محكمة الأسرة بندر المنيا، مركز المنيا، محافظة المنيا"
+                      : "Abo Flio - Besides Family Court Bandar El Menia , Minya Center , Al Minya Governate"}</div>
                   </div>
                 </div>
 
@@ -87,7 +89,7 @@ export default function Complaints() {
                   </div>
                   <div>
                     <div className="font-medium opacity-80 text-sm mb-1">{language === 'ar' ? 'راسلونا عبر البريد الإلكتروني' : 'Email Us'}</div>
-                    <div className="font-bold">info@magic-minya.gov.eg</div>
+                    <div className="font-bold">magic@minya.gov.eg</div>
                   </div>
                 </div>
 
@@ -97,7 +99,7 @@ export default function Complaints() {
                   </div>
                   <div>
                     <div className="font-medium opacity-80 text-sm mb-1">{language === 'ar' ? 'اتصل بنا' : 'Call Us'}</div>
-                    <div className="font-bold">0862343958</div>
+                    <div className="font-bold">+201505613674</div>
                   </div>
                 </div>
               </div>
@@ -109,14 +111,11 @@ export default function Complaints() {
               </h3>
               <div className="space-y-2 text-slate-600">
                 <div className="flex justify-between">
-                  <span>{language === 'ar' ? 'الأحد - الخميس' : 'Sun - Thu'}</span>
-                  <span className="font-medium text-slate-900">{language === 'ar' ?  '9:00 صباحاً - 3:00 مساءً' : '9 AM : 3 PM'} </span>
+                  <span>{language === 'ar' ? 'السبت - الجمعة' : 'Sat - Fri'}</span>
+                  <span className="font-medium text-slate-900">{language === 'ar' ? 'على مدار اليوم' : 'All Day'} </span>
 
                 </div>
-                <div className="flex justify-between">
-                  <span>{language === 'ar' ? 'الجمعة - السبت' : 'Fri - Sat'}</span>
-                  <span className="font-medium text-slate-900">{language === 'ar' ? 'مغلق' : 'Closed'}</span>
-                </div>
+
               </div>
             </div>
           </div>
@@ -151,7 +150,7 @@ export default function Complaints() {
                             {t('complaints.name') || (language === 'ar' ? 'الاسم' : 'Name')}
                           </FormLabel>
                           <FormControl>
-                            <Input placeholder={language === 'ar' ? 'جون دو' : 'John Doe'} {...field} className="h-12 bg-slate-50 border-slate-200 focus:border-primary focus:ring-primary/20 rounded-xl" />
+                            <Input placeholder={language === 'ar' ? 'ادخل الاسم' : 'Enter Your Name'} {...field} className="h-12 bg-slate-50 border-slate-200 focus:border-primary focus:ring-primary/20 rounded-xl" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

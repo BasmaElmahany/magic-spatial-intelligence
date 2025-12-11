@@ -6,7 +6,8 @@ export interface Center {
   descriptionEn: string;
   icon: string;
   color: string;
-  services: string[];
+  servicesAr: string[];
+  servicesEn: string[];
   achievements?: {
     titleAr: string;
     titleEn: string;
@@ -23,32 +24,36 @@ export const centers: Center[] = [
     descriptionEn: "Specializes in all surveying work using advanced modern technologies in coordination with all entities. The center collects and updates data related to infrastructure networks such as (water, sanitation, natural gas, electricity, telecommunications) while providing accurate maps of the locations and paths of these networks to avoid any damage to the infrastructure during excavation or development work.",
     icon: "Map",
     color: "from-red-500 to-orange-500",
-    services: [
+    servicesAr: [
       "الرفع المساحي",
       "إعداد الخرائط",
+
+    ],
+    servicesEn: [
       "Surveying",
       "Map Preparation"
+
     ],
     achievements: [
       {
         titleAr: "اعمال الرفع المساحي لتراخيص المباني والمحلات",
         titleEn: "Surveying work for building and shop licenses",
-        value: "36,918,140"
+        value: ""
       },
       {
         titleAr: "اعمال تحديد منسوب المبنى من سطح البحر",
         titleEn: "Building level determination from sea level",
-        value: "44,655,036"
+        value: ""
       },
       {
         titleAr: "اعمال الكشف عن المرافق",
         titleEn: "Facility detection work",
-        value: "2,890,423"
+        value: ""
       },
       {
         titleAr: "بروتوكول اعمال الرفع المساحى لوصلات الصرف الصحى",
         titleEn: "Surveying protocol for sanitation connections",
-        value: "20,800,000"
+        value: ""
       }
     ]
   },
@@ -60,12 +65,15 @@ export const centers: Center[] = [
     descriptionEn: "The center is a pioneer in employing remote sensing technologies and geographic information systems to support sustainable development and planning. It focuses on analyzing satellite images and geographic data to support decision-making in all fields such as agriculture, natural resource management, urban planning, and environmental change monitoring. The center effectively contributes to digital transformation by providing smart solutions based on the latest space and geographic technologies.",
     icon: "Satellite",
     color: "from-orange-500 to-yellow-500",
-    services: [
+    servicesAr: [
       "تحليل الصور الفضائية",
       "نظم المعلومات الجغرافية",
+    ],
+    servicesEn: [
       "Satellite Image Analysis",
       "Geographic Information Systems"
-    ]
+    ],
+
   },
   {
     id: 3,
@@ -75,9 +83,11 @@ export const centers: Center[] = [
     descriptionEn: "Specializes in collecting and analyzing geographic data and creating highly accurate updated spatial databases. Provides maps and analytical reports that support planning and decision-making processes in various sectors. Contributes to building a digital infrastructure that supports sustainable development and digital transformation. Relies on the latest geographic information systems technologies to enhance government and institutional performance efficiency.",
     icon: "Database",
     color: "from-teal-500 to-cyan-500",
-    services: [
+    servicesAr: [
       "قواعد البيانات المكانية",
       "التحليل الجغرافي",
+    ],
+    servicesEn: [
       "Spatial Databases",
       "Geographic Analysis"
     ]
@@ -90,9 +100,11 @@ export const centers: Center[] = [
     descriptionEn: "A specialized platform to support creativity and adopt the latest artificial intelligence technologies in developing smart services and solutions. Supports research and development, and stimulates an innovation environment to build advanced technological models and solutions. Contributes to digital transformation and enhancing institutional efficiency using modern artificial intelligence tools. Organizes specialized workshops and conferences, and hosts conferences to showcase the latest technologies and applications.",
     icon: "Brain",
     color: "from-blue-500 to-indigo-500",
-    services: [
+    servicesAr: [
       "الذكاء الاصطناعي",
       "البحث والتطوير",
+    ],
+    servicesEn: [
       "Artificial Intelligence",
       "Research & Development"
     ]
@@ -105,11 +117,14 @@ export const centers: Center[] = [
     descriptionEn: "Specializes in operating and maintaining digital systems and applying cybersecurity standards to protect data and secure technological infrastructure. Manages servers, central computers, monitoring systems, and communications within the complex with high efficiency. Also provides technical consultations and participates in supporting and implementing information infrastructure for all concerned entities. Provides technical support for operating digital measurement devices and facility networks, and develops software and applications supporting operations.",
     icon: "Server",
     color: "from-green-500 to-emerald-500",
-    services: [
+    servicesAr: [
       "الأمن السيبراني",
-      "إدارة الأنظمة",
+      "إدارة الأنظمة" , "تطوير البرمجيات"
+    ],
+     servicesEn: [
       "Cybersecurity",
-      "Systems Management"
+      "Systems Management" ,
+      "Software Development"
     ]
   },
   {
@@ -120,9 +135,11 @@ export const centers: Center[] = [
     descriptionEn: "Specializes in skills development and knowledge delivery through specialized training and academic courses in geographic information systems and software. Collaborates with universities and academic bodies to provide accredited workshops and courses and grant recognized training certificates. The center provides its services to the complex and external entities. Provides practical training opportunities for trainees. Partners with specialized centers and companies to provide high-quality training and benefit from the expertise of specialists.",
     icon: "GraduationCap",
     color: "from-lime-500 to-green-500",
-    services: [
+    servicesAr: [
       "التدريب والتطوير",
       "الشهادات المعتمدة",
+    ],
+     servicesEn: [
       "Training & Development",
       "Certified Programs"
     ]

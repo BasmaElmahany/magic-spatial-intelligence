@@ -12,6 +12,7 @@ import Centers from "./pages/Centers";
 import Services from "./pages/Services";
 import Platforms from "./pages/Platforms";
 import Complaints from "./pages/Complaints";
+import Devices from "./pages/Devices";
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function Router() {
         <Route path="/services" component={Services} />
         <Route path="/platforms" component={Platforms} />
         <Route path="/complaints" component={Complaints} />
+        <Route path="/devices" component={Devices} />
         <Route component={NotFound} />
       </Switch>
     </MainLayout>

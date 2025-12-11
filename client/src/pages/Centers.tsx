@@ -183,26 +183,35 @@ export default function Centers() {
                       </p>
 
                       {/* Services Preview */}
-                      {center.services?.length > 0 && (
+                      {(language === "ar" ? center.servicesAr : center.servicesEn)?.length > 0 && (
                         <div className="mb-6">
                           <div className="flex flex-wrap gap-2">
-                            {center.services.slice(0, 2).map((service, i) => (
+                            {(language === "ar" ? center.servicesAr : center.servicesEn)
+                              .slice(0, 2)
+                              .map((service, i) => (
+                                <Badge
+                                  key={i}
+                                  variant="secondary"
+                                  className="text-xs bg-slate-100 text-slate-700 hover:bg-slate-200"
+                                >
+                                  {service}
+                                </Badge>
+                              ))}
+
+                            {(language === "ar" ? center.servicesAr : center.servicesEn).length > 2 && (
                               <Badge
-                                key={i}
                                 variant="secondary"
-                                className="text-xs bg-slate-100 text-slate-700 hover:bg-slate-200"
+                                className="text-xs bg-slate-100 text-slate-700"
                               >
-                                {service}
-                              </Badge>
-                            ))}
-                            {center.services.length > 2 && (
-                              <Badge variant="secondary" className="text-xs bg-slate-100 text-slate-700">
-                                +{center.services.length - 2}
+                                +
+                                {(language === "ar" ? center.servicesAr : center.servicesEn).length -
+                                  2}
                               </Badge>
                             )}
                           </div>
                         </div>
                       )}
+
 
                       <motion.div
                         className="flex items-center text-blue-600 font-semibold text-sm group-hover:gap-3 gap-2 transition-all duration-300"
@@ -225,30 +234,59 @@ export default function Centers() {
       <AnimatePresence>
         {selectedCenter && (
           <Dialog open={!!selectedCenter} onOpenChange={() => setSelectedCenter(null)}>
-            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl">
-              <DialogHeader>
-                <div className="flex items-start gap-4 mb-4">
+            <DialogContent
+              className="max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl"
+              dir={language === "ar" ? "rtl" : "ltr"}
+            >
+              <DialogHeader
+                className={`${language === "ar" ? "text-right" : "text-left"}`}
+                dir={language === "ar" ? "rtl" : "ltr"}
+              >
+                <div
+                  className={`flex items-start gap-4 mb-4 ${language === "ar" ? "flex-row-reverse" : ""
+                    }`}
+                >
+                  {/* ICON */}
                   {(() => {
                     const Icon = iconMap[selectedCenter.icon];
                     return (
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${selectedCenter.color} flex items-center justify-center text-white shadow-lg flex-shrink-0`}>\
-                        <Icon className="w-8 h-8" />
+                      <div
+                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${selectedCenter.color}
+          flex items-center justify-center text-white shadow-lg flex-shrink-0`}
+                      >
+                        <Icon
+                          className={`w-8 h-8 transition-transform ${language === "ar" ? "scale-x-[-1]" : ""
+                            }`}
+                        />
                       </div>
                     );
                   })()}
 
-                  <div className="flex-1">
-                    <DialogTitle className="text-2xl font-bold text-slate-900 mb-2">
+                  {/* TITLE + BADGE */}
+                  <div className={`flex-1 ${language === "ar" ? "text-right" : "text-left"}`}>
+
+                    <DialogTitle
+                      className="text-2xl font-bold text-slate-900 mb-2 leading-snug"
+                    >
                       {language === "ar" ? selectedCenter.nameAr : selectedCenter.nameEn}
                     </DialogTitle>
-                    <Badge className={`bg-gradient-to-r ${selectedCenter.color} text-white border-0 px-4 py-1 rounded-full`}>
-                      {t("centers.title")} #{selectedCenter.id}
-                    </Badge>
+                    <div
+                      className={`flex ${language === "ar" ? "justify-end" : "justify-start"
+                        }`}
+                    >
+                      <Badge
+                        className={`bg-gradient-to-r ${selectedCenter.color} text-white border-0 px-4 py-1 rounded-full`}
+                      >
+                        {t("centers.title")} #{selectedCenter.id}
+                      </Badge>
+                    </div>
                   </div>
                 </div>
               </DialogHeader>
 
-              <div className="space-y-8 mt-6">
+
+              {/* BODY */}
+              <div className={`space-y-8 mt-6 ${language === "ar" ? "text-right" : "text-left"}`}>
                 {/* Description */}
                 <div>
                   <p className="text-slate-700 leading-relaxed text-lg">
@@ -257,14 +295,15 @@ export default function Centers() {
                 </div>
 
                 {/* Services */}
-                {selectedCenter.services && selectedCenter.services.length > 0 && (
+                {(language === "ar" ? selectedCenter.servicesAr : selectedCenter.servicesEn)?.length > 0 && (
                   <div>
                     <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
                       <CheckCircle2 className="w-5 h-5 text-green-600" />
                       {t("centers.services")}
                     </h3>
+
                     <div className="flex flex-wrap gap-2">
-                      {selectedCenter.services.map((service, i) => (
+                      {(language === "ar" ? selectedCenter.servicesAr : selectedCenter.servicesEn).map((service, i) => (
                         <Badge
                           key={i}
                           variant="secondary"
@@ -284,6 +323,7 @@ export default function Centers() {
                       <TrendingUp className="w-5 h-5 text-blue-600" />
                       {t("centers.achievements")}
                     </h3>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {selectedCenter.achievements.map((achievement, i) => (
                         <motion.div
@@ -306,6 +346,7 @@ export default function Centers() {
                 )}
               </div>
             </DialogContent>
+
           </Dialog>
         )}
       </AnimatePresence>

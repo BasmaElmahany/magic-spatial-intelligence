@@ -2,10 +2,12 @@ import { ReactNode } from 'react';
 import { Link, useLocation } from 'wouter';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { Globe, Menu, X, Facebook, Twitter, Linkedin, Instagram, MapPin, Phone, Mail } from 'lucide-react';
+import { Globe, Menu, X, Facebook, Twitter, Linkedin, Instagram, MapPin, Phone, Mail, Icon } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Chatbot from './Chatbot';
+import { text } from 'express';
+import { Item } from '@radix-ui/react-accordion';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -30,6 +32,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
     { path: '/about', label: 'nav.about' },
     { path: '/centers', label: 'nav.centers' },
     { path: '/services', label: 'nav.services' },
+    { path: '/devices', label: 'nav.devices' },
     { path: '/platforms', label: 'nav.platforms' },
     { path: '/complaints', label: 'nav.complaints' },
   ];
@@ -38,34 +41,101 @@ export default function MainLayout({ children }: MainLayoutProps) {
     setLanguage(language === 'en' ? 'ar' : 'en');
     const { t } = useLanguage();
   };
+  // Compact Contact Item Component
+  const ContactItem = ({
+    icon: Icon,
+    text,
+    href,
+    dir,
+  }: {
+    icon: any;
+    text: string;
+    href: string;
+    dir: string;
+  }) => (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`
+      group flex items-center gap-3
+      bg-primary text-primary-foreground
+      px-3 py-3 w-fit shadow-lg cursor-pointer
+      transition-all duration-300 rounded-r-xl
+      ${dir === "rtl" ? "rounded-l-xl rounded-r-none flex-row-reverse" : ""}
+    `}
+    >
+      {/* Icon */}
+      <Icon className="w-5 h-5 text-white" />
+
+      {/* Expanding Text */}
+      <span
+        className={`
+        whitespace-nowrap overflow-hidden
+        opacity-0 max-w-0
+        group-hover:max-w-[260px] group-hover:opacity-100
+        transition-all duration-300 text-sm
+      `}
+      >
+        {text}
+      </span>
+    </a>
+  );
+
 
   return (
     <div className={`min-h-screen flex flex-col bg-background font-sans ${dir === 'rtl' ? 'rtl' : 'ltr'}`} dir={dir}>
       <Chatbot />
-      {/* Top Bar */}
-      <div className="bg-primary text-primary-foreground py-2 text-sm hidden md:block">
-        <div className="container flex justify-between items-center">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" />
-              <span>Minya Governorate, Egypt</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4" />
-              <span>0862343958</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4" />
-              <span>info@magic-minya.gov.eg</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <a href="https://www.facebook.com/magic.minya" className="hover:text-white/80 transition-colors" target='blank'><Facebook className="w-4 h-4" /></a>
-            <a href="#" className="hover:text-white/80 transition-colors"><Linkedin className="w-4 h-4" /></a>
-            
-          </div>
-        </div>
-      </div>
+
+
+
+      {/* ============================
+   COMPACT CONTACT SIDEBAR
+=============================== */}
+      <aside
+        className={`
+    fixed top-1/3 z-50 flex flex-col gap-3
+    ${dir === "rtl" ? "right-0" : "left-0"}
+  `}
+      >
+        {/* LOCATION → Google Maps */}
+        <ContactItem
+          icon={MapPin}
+          text={
+            language === "ar"
+              ? "أبو فليو - بجانب محكمة الأسرة بندر المنيا، مركز المنيا، محافظة المنيا"
+              : "Abo Flio - Besides Family Court Bandar El Menia , Minya Center , Al Minya Governate"
+          }
+          href="https://maps.app.goo.gl/EEzEBPGhZCo3PLu2A"
+          dir={dir}
+        />
+
+        {/* PHONE → Dialer */}
+        <ContactItem
+          icon={Phone}
+          text="+201505613674"
+          href="tel:+201505613674"
+          dir={dir}
+        />
+
+        {/* EMAIL → Open Email App */}
+        <ContactItem
+          icon={Mail}
+          text="magic@minya.gov.eg"
+          href="mailto:magic@minya.gov.eg"
+          dir={dir}
+        />
+
+        {/* FACEBOOK → Open Facebook Page */}
+        <ContactItem
+          icon={Facebook}
+          text={language === "ar" ? "فيسبوك" : "Facebook"}
+          href="https://www.facebook.com/magic.minya"
+          dir={dir}
+        />
+      </aside>
+
+
 
       {/* Header */}
       <header
@@ -195,52 +265,53 @@ export default function MainLayout({ children }: MainLayoutProps) {
         <div className="container grid grid-cols-1 md:grid-cols-4 gap-12">
 
           {/* Logo + Description */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-8">
-              {/* Logo Container */}
-              <div className="relative w-40 h-24 rounded-xl flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-105">
-                {/* Optional gradient overlay - removed for full transparency */}
-                {/* <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent pointer-events-none"></div> */}
+          <div className="space-y-8">
 
-                {/* Logo Image */}
+            {/* Logo Row */}
+            <div className="flex items-center gap-6">
+
+              {/* Logo Container */}
+              <div className="relative w-40 h-24 flex items-center justify-center hover:scale-105 transition-transform duration-300">
                 <img
-                  src="/assets/logo.jpg"
-                  alt="Logo"
-                  className="relative z-10 object-cover w-36 h-20 rounded-2xl"
+                  src="/assets/Logo.png"
+                  alt="MAGIC Logo"
+                  className="w-32 h-20 object-contain drop-shadow-xl"
                 />
               </div>
 
 
               {/* Logo Text */}
               <div className="flex flex-col">
-                <span className="font-extrabold text-4xl text-white tracking-tight">
-                 MAGIC
+                <span className="font-extrabold text-4xl text-white leading-tight tracking-wide">
+                  MAGIC
                 </span>
-                <span className="text-lg text-white/70 font-medium tracking-wide mt-1">
+                <span className="text-lg text-white/70 font-medium leading-snug mt-1">
                   {t('footer.subtitle')}
                 </span>
               </div>
+
             </div>
 
-
-
-
-
-            <p className="text-slate-400 text-sm leading-relaxed">
+            {/* Description */}
+            <p className="text-slate-400 text-sm leading-relaxed max-w-md">
               {t('footer.description')}
             </p>
 
-            <div className="flex gap-4">
+            {/* Social Icons */}
+            <div className="flex gap-4 mt-4">
               <a
                 href="https://www.facebook.com/magic.minya"
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300"
-                target='blank'
+                target="blank"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center 
+                 hover:bg-primary hover:text-white transition-all duration-300 
+                 shadow-md hover:shadow-primary/40"
               >
                 <Facebook className="w-4 h-4" />
               </a>
-           
             </div>
+
           </div>
+
 
           {/* Quick Links */}
           <div>
@@ -308,7 +379,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <span className="text-slate-400">info@magic-minya.gov.eg</span>
+                <span className="text-slate-400">magic@minya.gov.eg</span>
               </li>
             </ul>
           </div>
