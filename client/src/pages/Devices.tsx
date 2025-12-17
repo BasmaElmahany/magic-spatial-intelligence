@@ -18,6 +18,36 @@ type DeviceConfig = {
 
 const devices: DeviceConfig[] = [
     {
+        id: 'seafloor-echo',
+        titleKey: 'devices.seafloorEchoSounder.title',
+        descriptionKey: 'devices.seafloorEchoSounder.description',
+        categoryEn: 'Hydrographic Survey',
+        categoryAr: 'مسح هيدروغرافي وأعماق',
+        image: '/assets/devices/model seafloor hydrone echo sounder.jpeg',
+        icon: Waves,
+        gradient: 'from-blue-500 to-cyan-500',
+    },
+    {
+        id: 'satlab-lixel-x1',
+        titleKey: 'devices.satlabLixelX1.title',
+        descriptionKey: 'devices.satlabLixelX1.description',
+        categoryEn: 'SLAM 3D Scanner',
+        categoryAr: 'ماسح ثلاثي الأبعاد SLAM',
+        image: '/assets/devices/SATLAB Lixel X1 SLAM.jpg',
+        icon: Rss,
+        gradient: 'from-fuchsia-500 to-purple-500',
+    },
+    {
+        id: 'gpr-ids-hi-mod',
+        titleKey: 'devices.gprIdsHiMod.title',
+        descriptionKey: 'devices.gprIdsHiMod.description',
+        categoryEn: 'Ground Penetrating Radar',
+        categoryAr: 'رادار اختراق أرض GPR',
+        image: '/assets/devices/GPR IDS Hi Mod.png',
+        icon: Radar,
+        gradient: 'from-emerald-500 to-lime-500',
+    },
+    {
         id: 'trimble-gnss-ref',
         titleKey: 'devices.trimbleGnssRef.title',
         descriptionKey: 'devices.trimbleGnssRef.description',
@@ -177,36 +207,9 @@ const devices: DeviceConfig[] = [
         icon: Waves,
         gradient: 'from-orange-500 to-amber-500',
     },
-    {
-        id: 'satlab-lixel-x1',
-        titleKey: 'devices.satlabLixelX1.title',
-        descriptionKey: 'devices.satlabLixelX1.description',
-        categoryEn: 'SLAM 3D Scanner',
-        categoryAr: 'ماسح ثلاثي الأبعاد SLAM',
-        image: '/assets/devices/SATLAB Lixel X1 SLAM.jpg',
-        icon: Rss,
-        gradient: 'from-fuchsia-500 to-purple-500',
-    },
-    {
-        id: 'seafloor-echo',
-        titleKey: 'devices.seafloorEchoSounder.title',
-        descriptionKey: 'devices.seafloorEchoSounder.description',
-        categoryEn: 'Hydrographic Survey',
-        categoryAr: 'مسح هيدروغرافي وأعماق',
-        image: '/assets/devices/model seafloor hydrone echo sounder.jpg',
-        icon: Waves,
-        gradient: 'from-blue-500 to-cyan-500',
-    },
-    {
-        id: 'gpr-ids-hi-mod',
-        titleKey: 'devices.gprIdsHiMod.title',
-        descriptionKey: 'devices.gprIdsHiMod.description',
-        categoryEn: 'Ground Penetrating Radar',
-        categoryAr: 'رادار اختراق أرض GPR',
-        image: '/assets/devices/GPR IDS Hi Mod.png',
-        icon: Radar,
-        gradient: 'from-emerald-500 to-lime-500',
-    },
+
+
+
     {
         id: 'rd8200',
         titleKey: 'devices.radiodetectionRd8200.title',
