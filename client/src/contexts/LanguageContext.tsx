@@ -325,6 +325,18 @@ export const translations: Translations = {
     "en": "AI-powered decision support.",
     "ar": "نظام دعم قرار يعتمد على الذكاء الاصطناعي."
   },
+  "platforms.eeei.title": {
+    "en": "Egyptian Entrepreneurship Ecosystem Infograph",
+    "ar": "انفوجرافيك عن نظام ريادة الأعمال في مصر"
+  },
+  "platforms.eeei.desc": {
+    "en": " Your comprehensive digital application for all players in the Egyptian entrepreneurship ecosystem. It is specifically designed to empower entrepreneurs, investors, and decision-makers to access all opportunities easily and intelligently.",
+    "ar": "تطبيقك الرقمي المتكامل والأكثر شمولاً لكل الفاعلين في بيئة ريادة الأعمال المصرية. صُمم خصيصًا لتمكين رواد الأعمال، المستثمرين، وصناع القرار من الوصول لكل الفرص بسهولة وذكاء."
+  },
+  "platforms.eeei.type": {
+    "en": " Mobile Application",
+    "ar": " تطبيق موبايل"
+  },
   "about.goal.badge": {
     "en": "Our Goal",
     "ar": "هدفنا"

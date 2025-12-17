@@ -38,23 +38,15 @@ export default function Platforms() {
       desc: 'platforms.discover.desc',
       image: '/assets/minyastic.png',
       link: 'https://tourism.minya.gov.eg/'
-    }/*,
+    },
   {
-    title: 'platforms.holdings.title',
-    type: 'platforms.holdings.type',
+    title: 'platforms.eeei.title',
+    type: 'platforms.eeei.type',
     icon: Smartphone,
-    desc: 'platforms.holdings.desc',
-    image: '/assets/surveying-modern.png',
-    link: '/platforms/holdings'
-  }*//*,
-  {
-    title: 'platforms.dawagin.title',
-    type: 'platforms.dawagin.type',
-    icon: Database,
-    desc: 'platforms.dawagin.desc',
-    image: '/assets/gis-modern.png',
-    link: '/platforms/dawagin'
-  }*/
+    desc: 'platforms.eeei.desc',
+    image: '/assets/EEEIAPP.png',
+    link: 'https://play.google.com/store/apps/details?id=com.magic.eeei&pcampaignid=web_share'
+  }
   ];
 
 

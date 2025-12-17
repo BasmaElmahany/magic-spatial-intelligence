@@ -31,11 +31,9 @@ export default function Services() {
         { en: 'Activity licensing surveying', ar: 'الرفع المساحي لتراخيص الأنشطة' },
         { en: 'Elevation determination from sea level', ar: 'تحديد منسوب المبنى من سطح البحر' },
         { en: 'Utilities detection and mapping', ar: 'الكشف عن المرافق ورسم الخرائط' },
-        { en: 'Sanitation connections protocol', ar: 'بروتوكول وصلات الصرف الصحي' },
-        { en: 'Road surveying and quantity estimation', ar: 'رفع الطرق وحساب الكميات' },
-        { en: '3D mapping for cities and villages', ar: 'إعداد خرائط ثلاثية الأبعاد للمدن والقرى' }
+                { en: '3D mapping for cities and villages', ar: 'إعداد خرائط ثلاثية الأبعاد للمدن والقرى' }
       ],
-      stats: { value: '105M+', labelEn: 'Total Surveying Work', labelAr: 'إجمالي أعمال الرفع المساحي' }
+      stats: { value: '', labelEn: ' Surveying Work', labelAr: ' أعمال الرفع المساحي' }
     },
     {
       categoryEn: 'GIS & Spatial Analysis',
