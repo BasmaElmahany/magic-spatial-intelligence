@@ -6,8 +6,7 @@ import { Globe, Menu, X, Facebook, Twitter, Linkedin, Instagram, MapPin, Phone, 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Chatbot from './Chatbot';
-import { text } from 'express';
-import { Item } from '@radix-ui/react-accordion';
+
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -298,18 +297,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
             </p>
 
             {/* Social Icons */}
-            <div className="flex gap-4 mt-4">
-              <a
-                href="https://www.facebook.com/magic.minya"
-                target="blank"
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center 
-                 hover:bg-primary hover:text-white transition-all duration-300 
-                 shadow-md hover:shadow-primary/40"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-            </div>
-
+          
           </div>
 
 
