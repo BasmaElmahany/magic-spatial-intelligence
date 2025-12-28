@@ -15,6 +15,121 @@ export interface Center {
   }[];
 }
 
+// src/data/magicMedia.ts
+export interface MagicMediaArticle {
+  id: number;
+  titleAr: string;
+  titleEn: string;
+  sourceAr: string;
+  sourceEn: string;
+  type: 'youtube' | 'article';
+  url: string;        // iframe or article url
+  thumbnail?: string; // optional image
+  embeddable?: boolean; // optional flag for embeddability
+}
+export const magicMediaArticles: MagicMediaArticle[] = [
+  {
+    id: 1,
+    titleAr: "لقاء خاص مع نائب محافظ المنيا",
+    titleEn: "Exclusive Interview with Minya Deputy Governor",
+    sourceAr: "قناة إكسترا نيوز",
+    sourceEn: "Extra News Channel",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/BIpNR88h8YY",
+    embeddable: true
+  },
+  {
+    id: 2,
+    titleAr: "افتتاح أول مجمع للذكاء المكاني في الصعيد",
+    titleEn: "Opening the First Spatial Intelligence Complex in Upper Egypt",
+    sourceAr: "بوابة الشروق",
+    sourceEn: "Al-Shorouk Gate",
+    type: "article",
+    url: "https://almessa.gomhuriaonline.com/577176/",
+    thumbnail: "/assets/shorouk.png",
+    embeddable: false
+  },
+  {
+    id: 3,
+    titleAr: "تغطية إخبارية لافتتاح مجمع الذكاء المكاني",
+    titleEn: "News Coverage of MAGIC Opening",
+    sourceAr: "أخبار اليوم",
+    sourceEn: "Akhbar Elyom",
+    type: "article",
+    url: "https://akhbarelyom.com/news/newdetails/4630414/1/",
+    thumbnail: "/assets/media/akhbar.jpg",
+    embeddable: true
+  },
+    {
+    id: 4,
+    titleAr: "مجمع الذكاء المكاني المتقدم في المنيا 2025",
+    titleEn: "Advanced GeoSpatial Intelligence Complex in Minya 2025",
+    sourceAr: "الأول نيوز ",
+    sourceEn: " The First News",
+    type: "article",
+    url: "https://alawwalnews.com/sectionsArt/mgmaa-althkaaa-almkany-almtkdm-fy-almnya-2025-alaol-mn-noaah-fy-msr-ldaam-althol-alrkmy-oaltkhtyt-althky",
+    thumbnail: "/assets/thefirst.png",
+    embeddable: true
+  },
+  {
+    id: 5,
+    titleAr: "الأول من نوعه في مصر",
+    titleEn: "The first of its kind in Egypt",
+    sourceAr: "مصراوي ",
+    sourceEn: "Masrawy",
+    type: "article",
+    url: "https://www.masrawy.com/news/news_regions/details/2025/6/3/2798366/%D8%A7%D9%84%D8%A3%D9%88%D9%84-%D9%85%D9%86-%D9%86%D9%88%D8%B9%D9%87-%D9%81%D9%8A-%D9%85%D8%B5%D8%B1-%D9%85%D8%AD%D8%A7%D9%81%D8%B8-%D8%A7%D9%84%D9%85%D9%86%D9%8A%D8%A7-%D9%8A%D9%81%D8%AA%D8%AA%D8%AD-%D9%85%D8%AC%D9%85%D8%B9-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D9%85%D9%83%D8%A7%D9%86%D9%8A-%D8%A7%D9%84%D9%85%D8%AA%D9%82%D8%AF%D9%85",
+    thumbnail: "/assets/masrawy.png",
+    embeddable: true
+  },
+  
+  {
+    id: 6,
+    titleAr: "افتتاح أول مجمع للذكاء المكاني لدعم التحول الرقمي في المنيا",
+    titleEn: "The first spatial intelligence complex to support digital transformation was inaugurated in Minya.",
+    sourceAr: "المصري اليوم ",
+    sourceEn: "El Masry El Youm",
+    type: "article",
+    url: "https://www.almasryalyoum.com/news/details/3467010",
+    thumbnail: "/assets/masryelyoum.png",
+    embeddable: true
+  },
+  {
+    id: 7,
+    titleAr: "نائب محافظ المنيا يتفقد مجمع الذكاء المكاني المتقدم استعداداً لافتتاحه قريباً",
+    titleEn: "The Deputy Governor of Minya inspects the advanced spatial intelligence complex in preparation for its imminent opening.",
+    sourceAr: "الوطن",
+    sourceEn: "El Watan",
+    type: "article",
+    url: "https://www.elwatannews.com/news/details/8069407",
+    thumbnail: "/assets/watan.png",
+    embeddable: true
+  },
+  {
+    id: 9,
+    titleAr: "نائب محافظ المنيا يتفقد مجمع الذكاء المكاني المتقدم استعدادًا لافتتاحه قريبًا",
+    titleEn: "The Deputy Governor of Minya inspects the advanced spatial intelligence complex in preparation for its imminent opening.",
+    sourceAr: "النبأ",
+    sourceEn: "El Nabaa",
+    type: "article",
+    url: "https://www.elnabaa.net/1113549",
+    thumbnail: "/assets/nabaa.png",
+    embeddable: true
+  },
+   {
+    id: 10,
+    titleAr: "نائب محافظ المنيا يتفقد مجمع الذكاء المكاني المتقدم استعدادا لافتتاحه",
+    titleEn: "The Deputy Governor of Minya inspects the Advanced Spatial Intelligence Complex in preparation for its opening.",
+    sourceAr: "صدى البلد",
+    sourceEn: "Sada Elbalad",
+    type: "article",
+    url: "https://www.elbalad.news/6556722",
+    thumbnail: "/assets/sadaElbalad.png",
+    embeddable: true
+  },
+];
+
+
 export const centers: Center[] = [
   {
     id: 1,

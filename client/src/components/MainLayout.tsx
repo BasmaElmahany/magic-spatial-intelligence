@@ -29,6 +29,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   const navItems = [
     { path: '/', label: 'nav.home' },
     { path: '/about', label: 'nav.about' },
+    { path: '/media', label: 'nav.media' },
     { path: '/centers', label: 'nav.centers' },
     { path: '/services', label: 'nav.services' },
     { path: '/devices', label: 'nav.devices' },

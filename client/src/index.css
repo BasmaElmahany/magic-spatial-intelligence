@@ -40,7 +40,7 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  
+
   --font-sans: "Inter", "Cairo", sans-serif;
   --font-display: "Inter", "Cairo", sans-serif;
   --font-mono: "Inter", "Cairo", monospace;
@@ -49,7 +49,8 @@
 :root {
   /* Enhanced Modern Corporate - Light Mode Palette */
   /* Primary: Vibrant Cyan/Blue */
-  --primary: oklch(0.55 0.18 240); /* #007AFF equivalent but more vibrant */
+  --primary: oklch(0.55 0.18 240);
+  /* #007AFF equivalent but more vibrant */
   --primary-foreground: oklch(1 0 0);
 
   /* Secondary: Clean White/Light Gray */
@@ -127,15 +128,25 @@
   --input: oklch(0.3 0.02 240);
   --ring: oklch(0.6 0.18 240);
 }
-.perspective { perspective: 1500px; }
-.preserve-3d { transform-style: preserve-3d; }
-.backface-hidden { backface-visibility: hidden; }
+
+.perspective {
+  perspective: 1500px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
 
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
@@ -168,5 +179,14 @@
       padding-right: 2rem;
       max-width: 1280px;
     }
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 }

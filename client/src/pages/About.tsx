@@ -1,9 +1,11 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Target, Award, Users, Building2 } from 'lucide-react';
+import { CheckCircle2, Target, Award, Users, Building2, TrendingUp, ShieldCheck, Eye, Leaf, Handshake, Brain, GraduationCap, Zap, Database, Satellite, Bell } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { visionAr, visionEn, strategicGoals } from '@/data/centerData';
+import MagicSection from './magicMedia';
+import { useState } from 'react';
 
 export default function About() {
   const { t, language } = useLanguage();
@@ -16,10 +18,27 @@ export default function About() {
     BookOpen: CheckCircle2,
     Lightbulb: CheckCircle2
   };
+    const iconMap = {
+      Map,
+      Zap,
+      Bell,
+      GraduationCap,
+    } as const;
+    const [openNews, setOpenNews] = useState<null | number>(null);
+  type IconName = keyof typeof iconMap;
+  const goalsIcons = {
+    TrendingUp,
+    Cpu: Brain,
+    Network: Database,
+    Radar: Satellite,
+    BookOpen: GraduationCap,
+    Lightbulb: Zap
+  };
 
+  const direction = language === "ar" ? ["0%", "100%", "200%", "0%"] : ["0%", "-100%", "-200%", "0%"];
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-  
+
 
       {/* HERO SECTION */}
       <div
@@ -194,7 +213,158 @@ export default function About() {
           </motion.div>
         </div>
       </section>
+      {/* ======================================================
+     KEY OBJECTIVES SECTION
+====================================================== */}
+      <section className="py-24 bg-gradient-to-b from-slate-50 to-white">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-center mb-16"
+          >
+            <Badge className="mb-4 px-6 py-2 bg-teal-100 text-teal-700 border-teal-200">
+              {language === 'ar' ? 'أهدافنا الرئيسية' : 'Key Objectives'}
+            </Badge>
 
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+              {language === 'ar' ? 'ما الذي نسعى لتحقيقه؟' : 'What We Aim to Achieve'}
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              {
+                icon: Target,
+                titleAr: "تحسين الكفاءة",
+                titleEn: "Boost Efficiency",
+                descAr: "تمكين المؤسسات من تسريع عملياتها وتحسين الأداء.",
+                descEn: "Enabling organizations to speed operations & improve performance.",
+              },
+              {
+                icon: TrendingUp,
+                titleAr: "تحقيق النمو",
+                titleEn: "Drive Growth",
+                descAr: "مساعدة المؤسسات على التوسع الذكي باستخدام البيانات.",
+                descEn: "Helping organizations expand wisely through data.",
+              },
+              {
+                icon: ShieldCheck,
+                titleAr: "ضمان الجودة",
+                titleEn: "Ensure Quality",
+                descAr: "تقديم حلول دقيقة وعالية الموثوقية.",
+                descEn: "Delivering accurate and highly reliable solutions.",
+              },
+            ].map((obj, idx) => {
+              const Icon = obj.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: idx * 0.1 }}
+                  whileHover={{ y: -8 }}
+                >
+                  <Card className="p-8 bg-white border-2 rounded-3xl shadow-lg hover:shadow-2xl transition-all">
+                    <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-blue-500 text-white rounded-2xl flex items-center justify-center mb-6">
+                      <Icon className="w-7 h-7" />
+                    </div>
+
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">
+                      {language === 'ar' ? obj.titleAr : obj.titleEn}
+                    </h3>
+
+                    <p className="text-slate-600 leading-relaxed">
+                      {language === 'ar' ? obj.descAr : obj.descEn}
+                    </p>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+      {/* ======================================================
+     ABOUT & VALUES & DOCUMENTS SECTION
+====================================================== */}
+      {/* ABOUT & VALUES & DOCUMENTS SECTION */}
+      <section className="py-28 bg-gradient-to-b from-white to-slate-50">
+        <div className="container space-y-32">
+
+          {/* ======================== GOAL ======================== */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <Badge className="px-6 py-2 bg-blue-100 text-blue-700 border-blue-200 mb-4">
+              {t("about.goal.badge")}
+            </Badge>
+
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              {t("about.goal.title")}
+            </h2>
+
+            <p className="text-xl leading-relaxed text-slate-700">
+              {t("about.goal.description")}
+            </p>
+          </motion.div>
+
+          {/* ======================== VALUES ======================== */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <Badge className="px-6 py-2 bg-emerald-100 text-emerald-700 border-emerald-200 mb-4">
+              {t("about.values.badge")}
+            </Badge>
+
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-14">
+              {t("about.values.title")}
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-6xl mx-auto">
+              {[
+                { key: "professional", icon: ShieldCheck },
+                { key: "quality", icon: Award },
+                { key: "transparency", icon: Eye },
+                { key: "sustainability", icon: Leaf },
+                { key: "integrity", icon: Handshake },
+              ].map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={idx}
+                    whileHover={{ scale: 1.06, y: -8 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                    className="group p-6 bg-white border rounded-3xl shadow-sm hover:shadow-xl transition relative overflow-hidden"
+                  >
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-teal-50 to-blue-50 blur-2xl"></div>
+
+                    <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-blue-500 text-white flex items-center justify-center mx-auto mb-4 shadow-md">
+                      <Icon className="w-7 h-7" />
+                    </div>
+
+                    <h3 className="font-bold text-lg text-slate-900">
+                      {t(`about.values.items.${item.key}`)}
+                    </h3>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+
+
+
+
+
+        </div>
+      </section>
       {/* Strategic Goals */}
       <section className="py-20">
         <div className="container">

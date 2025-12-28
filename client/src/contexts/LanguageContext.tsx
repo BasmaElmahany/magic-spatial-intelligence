@@ -28,6 +28,7 @@ export const translations: Translations = {
   'nav.contact': { en: 'Contact', ar: 'تواصل معنا' },
   'nav.complaints': { en: 'Complaints', ar: 'الشكاوى' },
   'nav.devices': { en: 'Devices', ar: 'الأجهزة' },
+  'nav.media': { en: 'Media', ar: 'الإعلام' },
   // Hero
   'hero.title': { en: 'Minya Advanced GeoSpatial Intelligence Complex', ar: 'مجمع الذكاء المكاني المتقدم' },
   'hero.acronym': { en: 'M.A.G.I.C', ar: 'M.A.G.I.C' },
@@ -422,8 +423,8 @@ export const translations: Translations = {
     "ar": "الإجراءات المتبعة"
   },
   "about.procedures.title": {
-    "en": "What are the procedures?",
-    "ar": "ما الإجراءات المتبعة؟"
+    "en": "What are the procedures to request a service?",
+    "ar": "ما الإجراءات المتبعة للطلب على خدمة؟"
   },
   "about.procedures.items.step1": {
     "ar": "يتقدم المواطن أو من ينوب عنه بطلب إلى المركز التكنولوجي وفقاً لنوع الخدمة المطلوبة.",

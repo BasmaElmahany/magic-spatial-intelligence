@@ -31,6 +31,8 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { useState } from 'react';
+import MagicMediaSection from './MagicMediaSection';
+import GovernmentPartnersSection from './GovernmentPartnersSection ';
 
 
 type DeviceConfig = {
@@ -46,35 +48,35 @@ type DeviceConfig = {
 
 const devices: DeviceConfig[] = [
   {
-        id: 'seafloor-echo',
-        titleKey: 'devices.seafloorEchoSounder.title',
-        descriptionKey: 'devices.seafloorEchoSounder.description',
-        categoryEn: 'Hydrographic Survey',
-        categoryAr: 'مسح هيدروغرافي وأعماق',
-        image: '/assets/devices/model seafloor hydrone echo sounder.jpeg',
-        icon: Waves,
-        gradient: 'from-blue-500 to-cyan-500',
-    },
-    {
-        id: 'satlab-lixel-x1',
-        titleKey: 'devices.satlabLixelX1.title',
-        descriptionKey: 'devices.satlabLixelX1.description',
-        categoryEn: 'SLAM 3D Scanner',
-        categoryAr: 'ماسح ثلاثي الأبعاد SLAM',
-        image: '/assets/devices/SATLAB Lixel X1 SLAM.jpg',
-        icon: Rss,
-        gradient: 'from-fuchsia-500 to-purple-500',
-    },
-    {
-        id: 'gpr-ids-hi-mod',
-        titleKey: 'devices.gprIdsHiMod.title',
-        descriptionKey: 'devices.gprIdsHiMod.description',
-        categoryEn: 'Ground Penetrating Radar',
-        categoryAr: 'رادار اختراق أرض GPR',
-        image: '/assets/devices/GPR IDS Hi Mod.png',
-        icon: Radar,
-        gradient: 'from-emerald-500 to-lime-500',
-    }
+    id: 'seafloor-echo',
+    titleKey: 'devices.seafloorEchoSounder.title',
+    descriptionKey: 'devices.seafloorEchoSounder.description',
+    categoryEn: 'Hydrographic Survey',
+    categoryAr: 'مسح هيدروغرافي وأعماق',
+    image: '/assets/devices/model seafloor hydrone echo sounder.jpeg',
+    icon: Waves,
+    gradient: 'from-blue-500 to-cyan-500',
+  },
+  {
+    id: 'satlab-lixel-x1',
+    titleKey: 'devices.satlabLixelX1.title',
+    descriptionKey: 'devices.satlabLixelX1.description',
+    categoryEn: 'SLAM 3D Scanner',
+    categoryAr: 'ماسح ثلاثي الأبعاد SLAM',
+    image: '/assets/devices/SATLAB Lixel X1 SLAM.jpg',
+    icon: Rss,
+    gradient: 'from-fuchsia-500 to-purple-500',
+  },
+  {
+    id: 'gpr-ids-hi-mod',
+    titleKey: 'devices.gprIdsHiMod.title',
+    descriptionKey: 'devices.gprIdsHiMod.description',
+    categoryEn: 'Ground Penetrating Radar',
+    categoryAr: 'رادار اختراق أرض GPR',
+    image: '/assets/devices/GPR IDS Hi Mod.png',
+    icon: Radar,
+    gradient: 'from-emerald-500 to-lime-500',
+  }
 ];
 
 const newsItems = [
@@ -178,6 +180,7 @@ export default function Home() {
   };
 
   const direction = language === "ar" ? ["0%", "100%", "200%", "0%"] : ["0%", "-100%", "-200%", "0%"];
+
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -419,6 +422,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* MAGIC MEDIA & PRESS SECTION */}
+
+      <MagicMediaSection />
 
       {/* ======================================================
      NEWS & PROTOCOLS SECTION
@@ -566,6 +572,8 @@ export default function Home() {
 
 
       </section>
+
+
       {/* ======================================================
      DEVICES PREVIEW SECTION (NEW)
 ====================================================== */}
@@ -666,192 +674,14 @@ export default function Home() {
         </div>
       </section>
 
+      <GovernmentPartnersSection />
 
-
-
-
-
-      {/* ======================================================
-           VISION SECTION
-      ====================================================== */}
-      <section className="py-24 bg-gradient-to-b from-white to-slate-50">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="max-w-5xl mx-auto"
-          >
-            <div className="text-center mb-12">
-              <Badge className="mb-4 px-6 py-2 bg-blue-100 text-blue-700 border-blue-200">
-                {t('about.vision')}
-              </Badge>
-
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-                {language === 'ar' ? 'رؤيتنا للمستقبل' : 'Our Vision for the Future'}
-              </h2>
-            </div>
-
-            <Card className="p-8 md:p-12 bg-gradient-to-br from-blue-50 to-cyan-50 border-2 shadow-xl relative overflow-hidden">
-              <img src="/assets/surveying-hologram.png" className="absolute inset-0 w-full h-full object-cover opacity-10" />
-              <Target className="w-12 h-12 text-blue-600 mb-6 mx-auto relative z-10" />
-              <p className="text-lg md:text-xl text-slate-700 text-center relative z-10">
-                {language === 'ar' ? visionAr : visionEn}
-              </p>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
-
-
-
-
-      {/* ======================================================
-     KEY OBJECTIVES SECTION
-====================================================== */}
-      <section className="py-24 bg-gradient-to-b from-slate-50 to-white">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
-          >
-            <Badge className="mb-4 px-6 py-2 bg-teal-100 text-teal-700 border-teal-200">
-              {language === 'ar' ? 'أهدافنا الرئيسية' : 'Key Objectives'}
-            </Badge>
-
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
-              {language === 'ar' ? 'ما الذي نسعى لتحقيقه؟' : 'What We Aim to Achieve'}
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {[
-              {
-                icon: Target,
-                titleAr: "تحسين الكفاءة",
-                titleEn: "Boost Efficiency",
-                descAr: "تمكين المؤسسات من تسريع عملياتها وتحسين الأداء.",
-                descEn: "Enabling organizations to speed operations & improve performance.",
-              },
-              {
-                icon: TrendingUp,
-                titleAr: "تحقيق النمو",
-                titleEn: "Drive Growth",
-                descAr: "مساعدة المؤسسات على التوسع الذكي باستخدام البيانات.",
-                descEn: "Helping organizations expand wisely through data.",
-              },
-              {
-                icon: ShieldCheck,
-                titleAr: "ضمان الجودة",
-                titleEn: "Ensure Quality",
-                descAr: "تقديم حلول دقيقة وعالية الموثوقية.",
-                descEn: "Delivering accurate and highly reliable solutions.",
-              },
-            ].map((obj, idx) => {
-              const Icon = obj.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: idx * 0.1 }}
-                  whileHover={{ y: -8 }}
-                >
-                  <Card className="p-8 bg-white border-2 rounded-3xl shadow-lg hover:shadow-2xl transition-all">
-                    <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-blue-500 text-white rounded-2xl flex items-center justify-center mb-6">
-                      <Icon className="w-7 h-7" />
-                    </div>
-
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">
-                      {language === 'ar' ? obj.titleAr : obj.titleEn}
-                    </h3>
-
-                    <p className="text-slate-600 leading-relaxed">
-                      {language === 'ar' ? obj.descAr : obj.descEn}
-                    </p>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
       {/* ======================================================
      ABOUT & VALUES & DOCUMENTS SECTION
 ====================================================== */}
       {/* ABOUT & VALUES & DOCUMENTS SECTION */}
       <section className="py-28 bg-gradient-to-b from-white to-slate-50">
         <div className="container space-y-32">
-
-          {/* ======================== GOAL ======================== */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <Badge className="px-6 py-2 bg-blue-100 text-blue-700 border-blue-200 mb-4">
-              {t("about.goal.badge")}
-            </Badge>
-
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              {t("about.goal.title")}
-            </h2>
-
-            <p className="text-xl leading-relaxed text-slate-700">
-              {t("about.goal.description")}
-            </p>
-          </motion.div>
-
-          {/* ======================== VALUES ======================== */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <Badge className="px-6 py-2 bg-emerald-100 text-emerald-700 border-emerald-200 mb-4">
-              {t("about.values.badge")}
-            </Badge>
-
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-14">
-              {t("about.values.title")}
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-6xl mx-auto">
-              {[
-                { key: "professional", icon: ShieldCheck },
-                { key: "quality", icon: Award },
-                { key: "transparency", icon: Eye },
-                { key: "sustainability", icon: Leaf },
-                { key: "integrity", icon: Handshake },
-              ].map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <motion.div
-                    key={idx}
-                    whileHover={{ scale: 1.06, y: -8 }}
-                    transition={{ type: "spring", stiffness: 200 }}
-                    className="group p-6 bg-white border rounded-3xl shadow-sm hover:shadow-xl transition relative overflow-hidden"
-                  >
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-teal-50 to-blue-50 blur-2xl"></div>
-
-                    <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-blue-500 text-white flex items-center justify-center mx-auto mb-4 shadow-md">
-                      <Icon className="w-7 h-7" />
-                    </div>
-
-                    <h3 className="font-bold text-lg text-slate-900">
-                      {t(`about.values.items.${item.key}`)}
-                    </h3>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
-
-
 
           {/* ======================== PROCEDURES ======================== */}
           <motion.div
@@ -895,7 +725,6 @@ export default function Home() {
       </section>
 
 
-
       {/* ======================================================
            CTA SECTION
       ====================================================== */}
@@ -928,7 +757,7 @@ export default function Home() {
               </Button>
             </Link>
 
-            <Link href="/contact">
+            <Link href="/complaints">
               <Button variant="outline" className="border-2 border-white text-white px-8 py-6 text-lg rounded-xl">
                 {language === 'ar' ? 'تواصل معنا' : 'Contact Us'}
               </Button>

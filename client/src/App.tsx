@@ -13,6 +13,8 @@ import Services from "./pages/Services";
 import Platforms from "./pages/Platforms";
 import Complaints from "./pages/Complaints";
 import Devices from "./pages/Devices";
+import MagicMediaLanding from "./pages/magicMediaLanding";
+import MagicMediaSection from "./pages/MagicMediaSection";
 
 function Router() {
   return (
@@ -25,6 +27,7 @@ function Router() {
         <Route path="/platforms" component={Platforms} />
         <Route path="/complaints" component={Complaints} />
         <Route path="/devices" component={Devices} />
+        <Route path="/media" component={MagicMediaSection} />
         <Route component={NotFound} />
       </Switch>
     </MainLayout>
