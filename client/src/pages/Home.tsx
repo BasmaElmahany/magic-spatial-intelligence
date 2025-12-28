@@ -423,6 +423,7 @@ export default function Home() {
         </div>
       </section>
       {/* MAGIC MEDIA & PRESS SECTION */}
+         <GovernmentPartnersSection />
 
       <MagicMediaSection />
 
@@ -674,7 +675,7 @@ export default function Home() {
         </div>
       </section>
 
-      <GovernmentPartnersSection />
+   
 
       {/* ======================================================
      ABOUT & VALUES & DOCUMENTS SECTION
@@ -723,8 +724,9 @@ export default function Home() {
 
         </div>
       </section>
-
       <GovernmentPartnersSection />
+
+
       {/* ======================================================
            CTA SECTION
       ====================================================== */}
