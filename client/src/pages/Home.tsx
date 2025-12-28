@@ -724,7 +724,7 @@ export default function Home() {
         </div>
       </section>
 
-
+      <GovernmentPartnersSection />
       {/* ======================================================
            CTA SECTION
       ====================================================== */}
