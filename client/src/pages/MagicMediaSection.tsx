@@ -17,6 +17,9 @@ const MagicMediaSection = () => {
             setActiveStory(magicMediaArticles[0]);
         }
     }, []);
+
+    const [activeSection, setActiveSection] = useState<string | null>(null);
+
     const publishDateISO = "2025-06-03";
     const publishDateText = isRTL
         ? "الثلاثاء، 03 يونيو 2025"
@@ -185,12 +188,71 @@ const MagicMediaSection = () => {
                             </h4>
 
                             <ul className="space-y-3 text-sm text-slate-600 leading-relaxed">
-                                <li><a href="#intro" className="hover:underline">• {isRTL ? "مقدمة الخبر" : "Introduction"}</a></li>
-                                <li><a href="#vision" className="hover:underline">• {isRTL ? "رؤية المجمع" : "Vision of the Complex"}</a></li>
-                                <li><a href="#integration" className="hover:underline">• {isRTL ? "التكامل المؤسسي" : "Institutional Integration"}</a></li>
-                                <li><a href="#centers" className="hover:underline">• {isRTL ? "المراكز المتخصصة" : "Specialized Centers"}</a></li>
-                                <li><a href="#impact" className="hover:underline">• {isRTL ? "الأثر الاستراتيجي" : "Strategic Impact"}</a></li>
+                                <li>
+                                    <a
+                                        href="#intro"
+                                        onClick={() => setActiveSection("intro")}
+                                        className={`toc-link ${activeSection === "intro"
+                                            ? "text-[#002D62] font-semibold"
+                                            : ""
+                                            }`}
+                                    >
+                                        • {isRTL ? "مقدمة الخبر" : "Introduction"}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#vision"
+                                        onClick={() => setActiveSection("vision")}
+                                        className={`toc-link ${activeSection === "vision"
+                                            ? "text-[#002D62] font-semibold"
+                                            : ""
+                                            }`}
+                                    >
+                                        • {isRTL ? "رؤية المجمع" : "Vision of the Complex"}
+                                    </a>
+                                </li>
+                                <li>
+
+                                    <a
+                                        href="#integration"
+                                        onClick={() => setActiveSection("integration")}
+                                        className={`toc-link ${activeSection === "integration"
+                                            ? "text-[#002D62] font-semibold"
+                                            : ""
+                                            }`}
+                                    >
+                                        • {isRTL ? "التكامل المؤسسي" : "Institutional Integration"}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#centers"
+                                        onClick={() => setActiveSection("centers")}
+                                        className={`toc-link ${activeSection === "centers"
+                                            ? "text-[#002D62] font-semibold"
+                                            : ""
+                                            }`}
+                                    >
+
+                                        • {isRTL ? "المراكز المتخصصة" : "Specialized Centers"}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#impact"
+                                        onClick={() => setActiveSection("impact")}
+                                        className={`toc-link ${activeSection === "impact"
+                                            ? "text-[#002D62] font-semibold"
+                                            : ""
+                                            }`}
+                                    >
+
+                                        • {isRTL ? "الأثر الاستراتيجي" : "Strategic Impact"}
+                                    </a>
+                                </li>
                             </ul>
+
                         </div>
                     </aside>
 
@@ -241,50 +303,112 @@ const MagicMediaSection = () => {
           text-lg leading-loose text-slate-700
           md:columns-2 md:gap-14
         `}
+
                         >
-                            {/* === INTRO === */}
-                            <p id="intro" className="mb-6 break-inside-avoid">
-                                {isRTL
-                                    ? "في إطار تنفيذ استراتيجية الدولة المصرية للتحول الرقمي، ودعم خطط التنمية المستدامة، افتتح اللواء عماد كدواني محافظ المنيا مجمع الذكاء المكاني المتقدم بمنطقة أبو فليو شرق النيل، بحضور الدكتور محمد أبو زيد نائب محافظ المنيا والمشرف العام على المجمع، وعدد من القيادات التنفيذية."
-                                    : "As part of Egypt’s national digital transformation strategy, the Advanced Spatial Intelligence Complex was inaugurated in Minya in the presence of senior executive leadership."}
-                            </p>
-
-                            {/* === VISION === */}
-                            <p id="vision" className="mb-6 break-inside-avoid">
-                                {isRTL
-                                    ? "ويُعد المجمع الأول من نوعه على مستوى الدولة، حيث يجمع نظم المعلومات الجغرافية، والبنية المعلوماتية المكانية، والذكاء الاصطناعي، والاستشعار عن بُعد، والحوسبة الفائقة."
-                                    : "The complex is the first of its kind nationwide, integrating GIS, spatial data infrastructure, AI, remote sensing, and high-performance computing."}
-                            </p>
-
-                            {/* === INTEGRATION === */}
-                            <p id="integration" className="mb-6 break-inside-avoid">
-                                {isRTL
-                                    ? "وقاد الدكتور محمد أبو زيد عملية دمج البنية المعلوماتية المكانية مع شبكات المرافق والرفع المساحي، بما يضمن توحيد مصادر البيانات ودعم التخطيط العمراني."
-                                    : "Dr. Mohamed Abu Zeid led the integration of spatial data infrastructure with utilities networks to ensure unified and reliable data."}
-                            </p>
-
-                            {/* === CENTERS === */}
-                            <div id="centers" className="mb-6 break-inside-avoid">
+                            {/* === INTRODUCTION === */}
+                            <div
+                                id="intro"
+                                className={`break-inside-avoid mb-6 p-3 rounded-md transition
+    ${activeSection === "intro" ? "bg-yellow-100" : ""}
+  `}
+                            >
                                 <h4 className="text-xl font-bold text-[#002D62] mb-3">
-                                    {isRTL ? "المراكز المتخصصة" : "Specialized Centers"}
+                                    {isRTL ? "المقدمة" : "Introduction"}
                                 </h4>
+                                {/* === INTRO === */}
+                                <p id="intro" className="mb-6 break-inside-avoid">
 
-                                <ul className={`list-disc space-y-2 ${isRTL ? "pr-6" : "pl-6"}`}>
-                                    <li>{isRTL ? "مركز معلومات شبكات المرافق والرفع المساحي" : "Utilities Networks Information and Surveying Center"}</li>
-                                    <li>{isRTL ? "مركز تطبيقات الاستشعار عن البعد" : "Remote Sensing Applications Center"}</li>
-                                    <li>{isRTL ? "مركز البنية المعلوماتية" : "Spatial Data Infrastructure Center"}</li>
-                                    <li>{isRTL ? "مركز تكنولوجيا المعلومات والبرمجيات" : "IT & Software Center"}</li>
-                                    <li>{isRTL ? "مركز الابتكار والذكاء الاصطناعي" : "Innovation & AI Center"}</li>
-                                    <li>{isRTL ? "مركز إعداد الكوادر" : "Capacity Building Center"}</li>
-                                </ul>
+                                    {isRTL
+                                        ? "في إطار تنفيذ استراتيجية الدولة المصرية للتحول الرقمي، ودعم خطط التنمية المستدامة، افتتح اللواء عماد كدواني محافظ المنيا مجمع الذكاء المكاني المتقدم بمنطقة أبو فليو شرق النيل، بحضور الدكتور محمد أبو زيد نائب محافظ المنيا والمشرف العام على المجمع، وعدد من القيادات التنفيذية.ويُعد المجمع الأول من نوعه على مستوى الدولة، حيث يجمع نظم المعلومات الجغرافية، والبنية المعلوماتية المكانية، والذكاء الاصطناعي، والاستشعار عن بُعد، والحوسبة الفائقة"
+                                        : "As part of Egypt’s national digital transformation strategy, the Advanced Spatial Intelligence Complex was inaugurated in Minya in the presence of senior executive leadership.The complex is the first of its kind nationwide, integrating GIS, spatial data infrastructure, AI, remote sensing, and high-performance computing."}
+                                </p>
+                            </div>
+                            {/* === vision === */}
+                            <div
+                                id="vision"
+                                className={`break-inside-avoid mb-6 p-3 rounded-md transition
+    ${activeSection === "vision" ? "bg-yellow-100" : ""}
+  `}
+                            >
+
+                                <h4 className="text-xl font-bold text-[#002D62] mb-3">
+                                    {isRTL ? "رؤية المجمع" : "Vision of the Complex"}
+                                </h4>
+                                {/* === VISION === */}
+                                <p id="vision" className="mb-6 break-inside-avoid">
+
+                                    {isRTL
+                                        ? "لعب الدكتور محمد أبو زيد نائب محافظ المنيا دورًا محوريًا في بلورة فكرة المجمع وتحويلها من مجرد تصور تقني إلى منظومة مؤسسية متكاملة، حيث انطلقت الرؤية من أهمية امتلاك قاعدة بيانات جغرافية دقيقة تُبنى على رفع الإحداثيات المكانية لكافة المواقع وربطها بمعلومات تفصيلية قابلة للتحليل والتحديث المستمر."
+                                        : "Dr. Mohamed Abu Zeid, Deputy Governor of Minya, played a pivotal role in shaping the idea of ​​the complex and transforming it from a mere technical concept into an integrated institutional system. The vision stemmed from the importance of possessing an accurate geographic database built upon recording the spatial coordinates of all sites and linking them to detailed information that is amenable to analysis and continuous updating."}
+                                </p>
+
+
                             </div>
 
-                            {/* === IMPACT === */}
-                            <p id="impact" className="break-inside-avoid">
-                                {isRTL
-                                    ? "ويمثل المجمع نموذجًا وطنيًا رائدًا يعكس رؤية الدولة في بناء منظومة رقمية متكاملة تعتمد على البيانات الدقيقة والكفاءات البشرية المؤهلة."
-                                    : "The complex represents a national model reflecting Egypt’s vision for a fully integrated digital ecosystem."}
-                            </p>
+
+                            {/* === centers === */}
+                            <div
+                                id="centers"
+                                className={`break-inside-avoid mb-6 p-3 rounded-md transition
+    ${activeSection === "centers" ? "bg-yellow-100" : ""}
+  `}
+                            >
+                                {/* === CENTERS === */}
+                                <div id="centers" className="mb-6 break-inside-avoid">
+                                    <h4 className="text-xl font-bold text-[#002D62] mb-3">
+                                        {isRTL ? "المراكز المتخصصة" : "Specialized Centers"}
+                                    </h4>
+
+                                    <ul className={`list-disc space-y-2 ${isRTL ? "pr-6" : "pl-6"}`}>
+                                        <li>{isRTL ? "مركز معلومات شبكات المرافق والرفع المساحي" : "Utilities Networks Information and Surveying Center"}</li>
+                                        <li>{isRTL ? "مركز تطبيقات الاستشعار عن البعد" : "Remote Sensing Applications Center"}</li>
+                                        <li>{isRTL ? "مركز البنية المعلوماتية" : "Spatial Data Infrastructure Center"}</li>
+                                        <li>{isRTL ? "مركز تكنولوجيا المعلومات والبرمجيات" : "IT & Software Center"}</li>
+                                        <li>{isRTL ? "مركز الابتكار والذكاء الاصطناعي" : "Innovation & AI Center"}</li>
+                                        <li>{isRTL ? "مركز إعداد الكوادر" : "Capacity Building Center"}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            {/* === impact === */}
+                            <div
+                                id="impact"
+                                className={`break-inside-avoid mb-6 p-3 rounded-md transition
+    ${activeSection === "impact" ? "bg-yellow-100" : ""}
+  `}
+                            >
+                                <h4 className="text-xl font-bold text-[#002D62] mb-3">
+                                    {isRTL ? "الأثر الاستراتيجي" : "Strategic Impact"}
+                                </h4>
+                                {/* === IMPACT === */}
+                                <p id="impact" className="break-inside-avoid">
+                                    {isRTL
+                                        ? "يمثل مجمع الذكاء المكاني المتقدم بالمنيا أحد النماذج الوطنية الرائدة التي تعكس رؤية الدولة في بناء منظومة رقمية متكاملة تعتمد على البيانات الدقيقة، والكفاءات البشرية المؤهلة، والتكنولوجيا الحديثة، بما يدعم تحقيق التنمية المستدامة، ويبزر محافظة المنيا في موقع متقدم على خريطة التحول الرقمي على مستوى الجمهورية."
+                                        : "The Advanced Spatial Intelligence Complex in Minya represents one of the leading national models that reflects the state’s vision of building an integrated digital system based on accurate data, qualified human competencies, and modern technology, which supports the achievement of sustainable development and highlights Minya Governorate in an advanced position on the digital transformation map at the national level."}
+                                </p>
+                            </div>
+                            {/* === INTegration === */}
+                            <div
+                                id="integration"
+                                className={`break-inside-avoid mb-6 p-3 rounded-md transition
+    ${activeSection === "integration" ? "bg-yellow-100" : ""}
+  `}
+                            >
+
+                                <h4 className="text-xl font-bold text-[#002D62] mb-3">
+                                    {isRTL ? "التكامل المؤسسي" : "Institutional Integration"}
+                                </h4>
+
+
+                                {/* === INTEGRATION === */}
+                                <p id="integration" className="mb-6 break-inside-avoid">
+
+                                    {isRTL
+                                        ? "كما قاد الدكتور محمد أبو زيد عملية دمج البنية المعلوماتية المكانية مع مركز شبكات المرافق والرفع المساحي في إطار واحد، بما يضمن توحيد مصادر البيانات، ومنع تضارب المعلومات، ودعم أعمال التخطيط العمراني، والحفاظ على البنية التحتية أثناء تنفيذ المشروعات المختلفة أكد محافظ المنيا أن المجمع يمثل أداة استراتيجية لإحكام السيطرة المعلوماتية المكانية على مختلف المواقع داخل المحافظة، حيث يوفر بيانات دقيقة وحديثة تدعم متخذي القرار في متابعة المشروعات التنموية، والتنبؤ بالمشاكل والمخالفات المحتملة قبل حدوثها، والتعامل معها، وتحسين مستوى الخدمات المقدمة للمواطنين. وأشار إلى أن المنيا تشهد طفرة حقيقية في مجال التقنيات الرقمية، من خلال هذا المجمع الذي يتيح تحليل البيانات الجغرافية والمكانية باستخدام نظم الذكاء الاصطناعي وصور الأقمار الصناعية، وإنتاج خرائط ثنائية وثلاثية الأبعاد تخدم مختلف القطاعات، من التخطيط العمراني إلى إدارة المرافق والبنية الأساسية. لا يقتصر تميز مجمع الذكاء المكاني المتقدم على البنية التكنولوجية فحسب، بل يمتد ليشمل الكوادر البشرية العاملة به، حيث يضم المجمع نخبة من المهندسين والمتخصصين والفنيين المدربين على أعلى مستوى في مجالات نظم المعلومات الجغرافية، والرفع المساحي، والاستشعار عن بُعد، والبرمجيات ، والذكاء الاصطناعي، وتحليل البيانات. وأكد الدكتور محمد أبو زيد أن الاستثمار في العنصر البشري يمثل حجر الأساس في نجاح المجمع، وهو ما انعكس في الحرص على إعداد وتأهيل الكوادر بشكل مستمر من خلال برامج تدريبية متقدمة، تضمن مواكبة أحدث التطورات التقنية، وتحقيق أعلى درجات الدقة والكفاءة في تنفيذ الأعمال والخدمات المقدمة."
+                                        : "Dr. Mohamed Abu Zeid also led the integration of the Spatial Information System (SIS) with the Utilities Networks and Surveying Center into a single framework. This ensures the unification of data sources, prevents information conflicts, supports urban planning, and preserves infrastructure during the implementation of various projects. The Governor of Minya emphasized that the complex represents a strategic tool for establishing spatial information control over various locations within the governorate. It provides accurate and up-to-date data that supports decision-makers in monitoring development projects, predicting potential problems and violations before they occur, addressing them, and improving the level of services provided to citizens. He pointed out that Minya is witnessing a genuine leap forward in the field of digital technologies through this complex, which enables the analysis of geographic and spatial data using artificial intelligence systems and satellite imagery. This results in the production of two-dimensional and three-dimensional maps that serve various sectors, from urban planning to the management of utilities and infrastructure. The excellence of the Advanced Spatial Intelligence Complex is not limited to its technological infrastructure but extends to its human resources. The complex includes a select group of engineers, specialists, and technicians trained to the highest standards in the fields of geographic information systems, surveying, remote sensing, software, artificial intelligence, and data analysis. Dr. Mohamed Abu Zeid emphasized that investing in human capital is the cornerstone of the complex’s success, which is reflected in the commitment to continuously preparing and qualifying personnel through advanced training programs that ensure keeping pace with the latest technological developments and achieving the highest levels of accuracy and efficiency in the execution of the work and services provided."}
+                                </p>
+                            </div>
+
+
                         </div>
                     </article>
 

@@ -189,4 +189,29 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* تعويض الهيدر أو الـ sticky top */
+  [id] {
+    scroll-margin-top: 120px;
+  }
+
+  /* شكل احترافي للـ TOC */
+  .toc-link {
+    display: block;
+    padding: 6px 0;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover {
+    color: #002d62;
+    transform: translateX(4px);
+  }
+
+  [dir="rtl"] .toc-link:hover {
+    transform: translateX(-4px);
+  }
 }

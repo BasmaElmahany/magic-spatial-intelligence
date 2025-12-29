@@ -63,88 +63,80 @@ const GovernmentEntitiesSlider = () => {
     },
   ];
 
-  /* ===== Auto Scroll (Adaptive Speed) ===== */
+  /* ===== Ultra Smooth Marquee ===== */
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
-    let scrollPos = 0;
+    let x = 0;
+    let rafId: number;
+
     const isMobile = window.innerWidth < 640;
-    const speed = isMobile ? 0.25 : 0.5;
+    const speed = isMobile ? 0.35 : 0.6;
 
-    const interval = setInterval(() => {
-      scrollPos += speed;
-      track.scrollLeft = isRTL ? -scrollPos : scrollPos;
+    // ✅ احسب عرض أول نسخة فقط
+    const singleSetWidth = track.scrollWidth / 2;
 
-      if (scrollPos >= track.scrollWidth - track.clientWidth) {
-        scrollPos = 0;
-        track.scrollLeft = 0;
+    const animate = () => {
+      x += speed;
+
+      if (x >= singleSetWidth) {
+        x = 0; // 🔁 Seamless reset
       }
-    }, 16);
 
-    return () => clearInterval(interval);
-  }, [isRTL]);
+      track.style.transform = `translate3d(${-x}px, 0, 0)`;
+      rafId = requestAnimationFrame(animate);
+    };
+
+    rafId = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(rafId);
+  }, []);
+
+
 
   return (
-    <section className="py-16 bg-[#f4f6f9] border-t">
-      <div className="container">
+    <section className="py-16 bg-[#f4f6f9] border-t overflow-hidden">
+      <div className="container overflow-hidden">
 
-        {/* ===== Slider ===== */}
-        <div
-          ref={trackRef}
-          className="
-            flex gap-4 sm:gap-8
-            overflow-x-auto
-            scrollbar-hide
-            py-4
-            snap-x snap-mandatory
-          "
-          style={{ direction: isRTL ? "rtl" : "ltr" }}
-        >
-          {[...governmentEntities, ...governmentEntities].map((entity, index) => (
-            <a
-              key={index}
-              href={entity.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                snap-start
-                min-w-[140px] sm:min-w-[200px]
-                h-[110px] sm:h-[130px]
-                bg-white
-                rounded-2xl
-                flex flex-col items-center justify-center gap-2
-                transition-transform duration-300 ease-out
-                hover:scale-[1.04]
-                focus-visible:scale-[1.04]
-              "
-            >
-              <img
-                src={entity.logo}
-                alt={isRTL ? entity.nameAr : entity.nameEn}
+        <div className="relative overflow-hidden">
+          <div
+            ref={trackRef}
+            className="flex gap-4 sm:gap-8 will-change-transform"
+            style={{ direction: "ltr" }}
+          >
+            {[...governmentEntities, ...governmentEntities].map((entity, index) => (
+              <a
+                key={index}
+                href={entity.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
-                  max-h-10 sm:max-h-14
-                  object-contain
-                "
-              />
-
-              <span
-                className="
-                  text-[11px] sm:text-xs
-                  text-slate-600
-                  text-center
-                  px-2
-                  line-clamp-1
-                "
+              min-w-[140px] sm:min-w-[200px]
+              h-[110px] sm:h-[130px]
+              bg-white
+              rounded-2xl
+              flex flex-col items-center justify-center gap-2
+              transition-transform duration-300 ease-out
+              hover:scale-[1.05]
+            "
               >
-                {isRTL ? entity.nameAr : entity.nameEn}
-              </span>
-            </a>
-          ))}
+                <img
+                  src={entity.logo}
+                  alt={isRTL ? entity.nameAr : entity.nameEn}
+                  className="max-h-10 sm:max-h-14 object-contain"
+                />
+                <span className="text-[11px] sm:text-xs text-slate-600 text-center px-2 line-clamp-1">
+                  {isRTL ? entity.nameAr : entity.nameEn}
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
 
       </div>
     </section>
+
   );
 };
 
